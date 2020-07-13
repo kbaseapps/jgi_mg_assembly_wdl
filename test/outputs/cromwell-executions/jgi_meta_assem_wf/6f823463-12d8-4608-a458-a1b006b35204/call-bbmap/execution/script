@@ -1,0 +1,40 @@
+#!/bin/bash
+
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bbmap/execution
+tmpDir=$(mkdir -p "/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bbmap/tmp.7496a95b" && echo "/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bbmap/tmp.7496a95b")
+chmod 777 "$tmpDir"
+export _JAVA_OPTIONS=-Djava.io.tmpdir="$tmpDir"
+export TMPDIR="$tmpDir"
+export HOME="$HOME"
+(
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bbmap/execution
+
+)
+out6f823463="${tmpDir}/out.$$" err6f823463="${tmpDir}/err.$$"
+mkfifo "$out6f823463" "$err6f823463"
+trap 'rm "$out6f823463" "$err6f823463"' EXIT
+tee '/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bbmap/execution/stdout' < "$out6f823463" &
+tee '/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bbmap/execution/stderr' < "$err6f823463" >&2 &
+(
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bbmap/execution
+
+
+bbmap.sh nodisk=true interleaved=true ambiguous=random in=/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bbmap/inputs/2043362170/filtered.fastq.gz ref=/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bbmap/inputs/148534751/assembly.scaffolds.fasta out=paired.mapped.bam covstats=paired.mapped.cov 
+
+samtools sort -@ 3 paired.mapped.bam -o paired.mapped_sorted.bam
+
+samtools index paired.mapped_sorted.bam
+)  > "$out6f823463" 2> "$err6f823463"
+echo $? > /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bbmap/execution/rc.tmp
+(
+# add a .file in every empty directory to facilitate directory delocalization on the cloud
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bbmap/execution
+find . -type d -exec sh -c '[ -z "$(ls -A '"'"'{}'"'"')" ] && touch '"'"'{}'"'"'/.file' \;
+)
+(
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bbmap/execution
+sync
+
+
+)
+mv /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bbmap/execution/rc.tmp /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bbmap/execution/rc

@@ -1,0 +1,41 @@
+#!/bin/bash
+
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bfc/execution
+tmpDir=$(mkdir -p "/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bfc/tmp.e757d02b" && echo "/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bfc/tmp.e757d02b")
+chmod 777 "$tmpDir"
+export _JAVA_OPTIONS=-Djava.io.tmpdir="$tmpDir"
+export TMPDIR="$tmpDir"
+export HOME="$HOME"
+(
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bfc/execution
+
+)
+out6f823463="${tmpDir}/out.$$" err6f823463="${tmpDir}/err.$$"
+mkfifo "$out6f823463" "$err6f823463"
+trap 'rm "$out6f823463" "$err6f823463"' EXIT
+tee '/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bfc/execution/stdout' < "$out6f823463" &
+tee '/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bfc/execution/stderr' < "$err6f823463" >&2 &
+(
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bfc/execution
+
+
+echo -e "\n### running bfc infile: /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bfc/inputs/2043362170/filtered.fastq.gz ###\n"
+bfc -1 -k 25 -b 32 -t 4 /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bfc/inputs/2043362170/filtered.fastq.gz 1> bfc.fastq 2> bfc.error 
+
+seqtk trimfq bfc.fastq 1> bfc.seqtk.fastq 2> seqtk.error
+
+pigz -c bfc.seqtk.fastq -p 4 -2 1> filtered.bfc.fq.gz 2> pigz.error
+)  > "$out6f823463" 2> "$err6f823463"
+echo $? > /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bfc/execution/rc.tmp
+(
+# add a .file in every empty directory to facilitate directory delocalization on the cloud
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bfc/execution
+find . -type d -exec sh -c '[ -z "$(ls -A '"'"'{}'"'"')" ] && touch '"'"'{}'"'"'/.file' \;
+)
+(
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bfc/execution
+sync
+
+
+)
+mv /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bfc/execution/rc.tmp /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bfc/execution/rc

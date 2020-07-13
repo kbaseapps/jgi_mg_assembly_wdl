@@ -1,0 +1,99 @@
+java -ea -Xmx23163m -Xms23163m -cp /bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 nodisk=true interleaved=true ambiguous=random in=/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bbmap/inputs/2043362170/filtered.fastq.gz ref=/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bbmap/inputs/148534751/assembly.scaffolds.fasta out=paired.mapped.bam covstats=paired.mapped.cov
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bbmap/tmp.7496a95b
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, nodisk=true, interleaved=true, ambiguous=random, in=/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bbmap/inputs/2043362170/filtered.fastq.gz, ref=/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bbmap/inputs/148534751/assembly.scaffolds.fasta, out=paired.mapped.bam, covstats=paired.mapped.cov]
+Version 38.57
+
+Set INTERLEAVED to true
+Choosing a site randomly for ambiguous mappings.
+Executing dna.FastaToChromArrays2 [/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bbmap/inputs/148534751/assembly.scaffolds.fasta, 1, writeinthread=false, genscaffoldinfo=true, retain, waitforwriting=false, gz=true, maxlen=536670912, writechroms=false, minscaf=1, midpad=300, startpad=8000, stoppad=8000, nodisk=true]
+
+Set genScaffoldInfo=true
+Set genome to 1
+
+Loaded Reference:	0.007 seconds.
+Loading index for chunk 1-1, build 1
+Indexing threads started for block 0-1
+Indexing threads finished for block 0-1
+Generated Index:	0.500 seconds.
+Analyzed Index:   	3.976 seconds.
+Found samtools 1.9
+Started output stream:	1.298 seconds.
+Cleared Memory:    	1.005 seconds.
+Processing reads in paired-ended mode.
+Started read stream.
+Started 8 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	2500	(249910 bases)
+
+Mapping:          	0.694 seconds.
+Reads/sec:       	3601.55
+kBases/sec:      	360.03
+
+
+Pairing data:   	pct pairs	num pairs 	pct bases	   num bases
+
+mated pairs:     	  3.5200% 	       44 	  3.5213% 	        8800
+bad pairs:       	  0.0000% 	        0 	  0.0000% 	           0
+insert size avg: 	  329.75
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 10.3200% 	      129 	 10.3141% 	       12888
+unambiguous:     	 10.3200% 	      129 	 10.3141% 	       12888
+ambiguous:       	  0.0000% 	        0 	  0.0000% 	           0
+low-Q discards:  	  0.0000% 	        0 	  0.0000% 	           0
+
+perfect best site:	  5.8400% 	       73 	  5.8325% 	        7288
+semiperfect site:	  6.4800% 	       81 	  6.4727% 	        8088
+rescued:         	  0.0000% 	        0
+
+Match Rate:      	      NA 	       NA 	 96.6403% 	       12455
+Error Rate:      	 36.4341% 	       47 	  0.5043% 	          65
+Sub Rate:        	 36.4341% 	       47 	  0.5043% 	          65
+Del Rate:        	  0.0000% 	        0 	  0.0000% 	           0
+Ins Rate:        	  0.0000% 	        0 	  0.0000% 	           0
+N Rate:          	 13.9535% 	       18 	  2.8554% 	         368
+
+
+Read 2 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	  9.3600% 	      117 	  9.3634% 	       11700
+unambiguous:     	  9.3600% 	      117 	  9.3634% 	       11700
+ambiguous:       	  0.0000% 	        0 	  0.0000% 	           0
+low-Q discards:  	  0.0000% 	        0 	  0.0000% 	           0
+
+perfect best site:	  4.3200% 	       54 	  4.3216% 	        5400
+semiperfect site:	  4.8000% 	       60 	  4.8017% 	        6000
+rescued:         	  0.0000% 	        0
+
+Match Rate:      	      NA 	       NA 	 94.0256% 	       11001
+Error Rate:      	 48.7179% 	       57 	  0.7949% 	          93
+Sub Rate:        	 48.7179% 	       57 	  0.7949% 	          93
+Del Rate:        	  0.0000% 	        0 	  0.0000% 	           0
+Ins Rate:        	  0.0000% 	        0 	  0.0000% 	           0
+N Rate:          	 19.6581% 	       23 	  5.1795% 	         606
+
+Reads:                               	2500
+Mapped reads:                        	246
+Mapped bases:                        	23614
+Ref scaffolds:                       	12
+Ref bases:                           	4178
+
+Percent mapped:                      	9.840
+Percent proper pairs:                	3.520
+Average coverage:                    	5.652
+Standard deviation:                    	2.092
+Percent scaffolds with any coverage: 	100.00
+Percent of reference bases covered:  	100.00
+
+Total time:     	8.001 seconds.
+[bam_sort_core] merging from 0 files and 3 in-memory blocks...

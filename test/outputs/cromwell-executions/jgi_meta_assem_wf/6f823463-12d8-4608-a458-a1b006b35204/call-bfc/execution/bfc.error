@@ -1,0 +1,13 @@
+[M::main] set k to 25
+[M::bfc_count_cb] read 2500 sequences
+[M::bfc_count_cb] read 0 sequences
+[M::bfc_count_cb @1.4*103.3%] processed 2500 sequences
+[M::bfc_count_cb] read 0 sequences
+[M::bfc_correct @1.5*103.2%] Starting...
+[M::bfc_ec_cb] read 2500 sequences
+[M::bfc_ec_cb] read 0 sequences
+[M::bfc_ec_cb @1.5*105.7%] processed 2500 sequences
+[M::bfc_ec_cb] read 0 sequences
+[M::main] Version: r181
+[M::main] CMD: bfc -1 -k 25 -b 32 -t 4 /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-bfc/inputs/2043362170/filtered.fastq.gz
+[M::main] Real time: 1.518 sec; CPU: 1.602 sec

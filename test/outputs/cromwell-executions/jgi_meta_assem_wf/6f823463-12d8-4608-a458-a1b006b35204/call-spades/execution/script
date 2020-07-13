@@ -1,0 +1,36 @@
+#!/bin/bash
+
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/execution
+tmpDir=$(mkdir -p "/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/tmp.9bed66d6" && echo "/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/tmp.9bed66d6")
+chmod 777 "$tmpDir"
+export _JAVA_OPTIONS=-Djava.io.tmpdir="$tmpDir"
+export TMPDIR="$tmpDir"
+export HOME="$HOME"
+(
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/execution
+
+)
+out6f823463="${tmpDir}/out.$$" err6f823463="${tmpDir}/err.$$"
+mkfifo "$out6f823463" "$err6f823463"
+trap 'rm "$out6f823463" "$err6f823463"' EXIT
+tee '/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/execution/stdout' < "$out6f823463" &
+tee '/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/execution/stderr' < "$err6f823463" >&2 &
+(
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/execution
+
+
+spades.py -m 2000 -o spades3 --only-assembler -k 33,55,77,99,127 --meta -t 32 -1 /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/inputs/-2136479803/read1.fasta -2 /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/inputs/-2136479803/read2.fasta
+)  > "$out6f823463" 2> "$err6f823463"
+echo $? > /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/execution/rc.tmp
+(
+# add a .file in every empty directory to facilitate directory delocalization on the cloud
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/execution
+find . -type d -exec sh -c '[ -z "$(ls -A '"'"'{}'"'"')" ] && touch '"'"'{}'"'"'/.file' \;
+)
+(
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/execution
+sync
+
+
+)
+mv /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/execution/rc.tmp /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/execution/rc

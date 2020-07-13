@@ -1,0 +1,7 @@
+#File	/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-rqcfilt/tmp.4ec90d83/TEMP_CLUMP_22d1d55c6a4b2a3caf7082c611ec7f_filtered.fastq.gz
+#Total	2500
+#Matched	4	0.16000%
+#Name	Reads	ReadsPct
+RCOMP_I5_Nextera_Transposase_2	2	0.08000%
+I7_Primer_Nextera_XT_and_Nextera_Enrichment_N701	1	0.04000%
+RNA_Adapter_(RA5)_part_#_15013205	1	0.04000%

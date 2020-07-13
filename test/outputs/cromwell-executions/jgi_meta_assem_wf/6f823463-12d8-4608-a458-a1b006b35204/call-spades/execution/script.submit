@@ -1,0 +1,2 @@
+#!/bin/bash
+docker run --rm -v /mnt/nfs3/data1/homes/canon/dev/jgi_mg_assembly_wdl/test_local/workdir/tmp/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades:/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades -v /kbase/data/sdk/prod/refdata/bbtools/0.2/:/refdata:ro -i jfroula/jgi_meta_assem@sha256:c49e756bce635f85ab643827070528f650b6bfffcca99264342b0c9f2b3fe8b9 /bin/bash /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/execution/script

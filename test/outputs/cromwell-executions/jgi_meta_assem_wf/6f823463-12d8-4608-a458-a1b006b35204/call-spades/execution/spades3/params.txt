@@ -1,0 +1,32 @@
+Command line: /opt/conda/bin/spades.py	-m	2000	-o	/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/execution/spades3	--only-assembler	-k	33,55,77,99,127	--meta	-t	32	-1	/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/inputs/-2136479803/read1.fasta	-2	/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/inputs/-2136479803/read2.fasta	
+
+System information:
+  SPAdes version: 3.13.1
+  Python version: 2.7.16
+  OS: Linux-4.15.0-91-generic-x86_64-with-debian-9.9
+
+Output dir: /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/execution/spades3
+Mode: ONLY assembling (without read error correction)
+Debug mode is turned OFF
+
+Dataset parameters:
+  Metagenomic mode
+  Reads:
+    Library number: 1, library type: paired-end
+      orientation: fr
+      left reads: ['/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/inputs/-2136479803/read1.fasta']
+      right reads: ['/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/inputs/-2136479803/read2.fasta']
+      interlaced reads: not specified
+      single reads: not specified
+      merged reads: not specified
+Assembly parameters:
+  k: [33, 55, 77, 99, 127]
+  Repeat resolution is enabled
+  Mismatch careful mode is turned OFF
+  MismatchCorrector will be SKIPPED
+  Coverage cutoff is turned OFF
+Other parameters:
+  Dir for temp files: /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/execution/spades3/tmp
+  Threads: 32
+  Memory limit (in Gb): 2000
+

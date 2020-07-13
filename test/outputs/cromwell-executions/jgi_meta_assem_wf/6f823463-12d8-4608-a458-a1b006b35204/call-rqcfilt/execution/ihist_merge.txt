@@ -1,0 +1,6 @@
+#Mean	0.000
+#Median	0
+#Mode	0
+#STDev	0.000
+#PercentOfPairs	0.000
+#InsertSize	Count

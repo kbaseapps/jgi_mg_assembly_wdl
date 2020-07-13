@@ -1,0 +1,5 @@
+{
+  "jgi_meta_assem_wf.input_file": "/global/cscratch1/sd/jfroula/jaws-meta-assem/Data/test_reads.fastq",
+  "jgi_meta_assem_wf.threads": "4"
+}
+

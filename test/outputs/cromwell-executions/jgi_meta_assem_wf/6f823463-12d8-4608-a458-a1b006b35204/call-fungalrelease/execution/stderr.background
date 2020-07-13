@@ -1,0 +1,7 @@
+java -ea -Xmx10g -Xms10g -cp /bbmap/current/ jgi.FungalRelease -Xmx10g in=/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-fungalrelease/inputs/-1152505077/scaffolds.fasta out=assembly.scaffolds.fasta outc=assembly.contigs.fasta agp=assembly.agp legend=assembly.scaffolds.legend mincontig=200 minscaf=200 sortscaffolds=t sortcontigs=t overwrite=t
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-fungalrelease/tmp.d418ef21
+Executing jgi.FungalRelease [-Xmx10g, in=/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-fungalrelease/inputs/-1152505077/scaffolds.fasta, out=assembly.scaffolds.fasta, outc=assembly.contigs.fasta, agp=assembly.agp, legend=assembly.scaffolds.legend, mincontig=200, minscaf=200, sortscaffolds=t, sortcontigs=t, overwrite=t]
+
+Time:                         	0.172 seconds.
+Reads Processed:          12 	0.07k reads/sec
+Bases Processed:        4178 	0.02m bases/sec

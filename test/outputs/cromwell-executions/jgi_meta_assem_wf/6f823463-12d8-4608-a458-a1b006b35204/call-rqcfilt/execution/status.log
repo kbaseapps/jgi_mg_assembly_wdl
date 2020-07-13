@@ -1,0 +1,42 @@
+bbtools filter start, 2020-07-12 19:47:26
+findAdapters start, 2020-07-12 19:47:26
+findAdapters finish, 2020-07-12 19:47:26
+clumpify start, 2020-07-12 19:47:26
+clumpify finish, 2020-07-12 19:47:27
+ktrim start, 2020-07-12 19:47:27
+#Input:	2500 reads	250000 bases	79624 kmers
+#Remaining:	2500 reads	249910 bases	75197 kmers
+ktrim finish, 2020-07-12 19:47:27
+delete temp files start, 2020-07-12 19:47:27
+delete temp files finish, 2020-07-12 19:47:28
+filterSpikein start, 2020-07-12 19:47:28
+#Input:	2500 reads	249910 bases	78658 kmers
+#Remaining:	2500 reads	249910 bases	80083 kmers
+filterSpikein finish, 2020-07-12 19:47:28
+delete temp files start, 2020-07-12 19:47:28
+delete temp files finish, 2020-07-12 19:47:28
+filter start, 2020-07-12 19:47:28
+#Input:	2500 reads	249910 bases	78038 kmers
+#Remaining:	2500 reads	249910 bases	75197 kmers
+filter finish, 2020-07-12 19:47:30
+delete temp files start, 2020-07-12 19:47:30
+delete temp files finish, 2020-07-12 19:47:30
+short filter start, 2020-07-12 19:47:30
+#Input:	2500 reads	249910 bases	75007 kmers
+#Remaining:	2500 reads	249910 bases	77339 kmers
+short filter finish, 2020-07-12 19:47:30
+delete temp files start, 2020-07-12 19:47:30
+delete temp files finish, 2020-07-12 19:47:30
+dehumanize start, 2020-07-12 19:47:30
+#Input:	2500 reads	249910 bases
+#Remaining:	2500 reads	249910 bases
+dehumanize finish, 2020-07-12 19:50:24
+delete temp files start, 2020-07-12 19:50:24
+delete temp files finish, 2020-07-12 19:50:24
+merge start, 2020-07-12 19:50:24
+#Input:	2500 reads	249910 bases	76646 kmers
+#Remaining:	2500 reads	249910 bases	76646 kmers
+merge finish, 2020-07-12 19:50:47
+khist start, 2020-07-12 19:50:47
+khist finish, 2020-07-12 19:50:52
+RQCFilter complete, 2020-07-12 19:50:52

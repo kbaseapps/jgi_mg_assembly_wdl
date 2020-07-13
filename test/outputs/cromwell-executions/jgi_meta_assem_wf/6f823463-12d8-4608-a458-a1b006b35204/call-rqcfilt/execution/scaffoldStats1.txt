@@ -1,0 +1,4 @@
+#File	/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-rqcfilt/tmp.4ec90d83/TEMP_SPIKEIN_22d1d55c6a4b2a3caf7082c611ec7f_filtered.fastq.gz
+#Total	2500
+#Matched	0	0.00000%
+#Name	Reads	ReadsPct

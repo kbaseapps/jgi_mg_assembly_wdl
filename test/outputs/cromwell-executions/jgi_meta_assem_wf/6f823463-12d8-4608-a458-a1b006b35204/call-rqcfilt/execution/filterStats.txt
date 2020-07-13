@@ -1,0 +1,14 @@
+inputReads=2500
+inputBases=250000
+qtrimmedReads=0
+qtrimmedBases=0
+qfilteredReads=0
+qfilteredBases=0
+ktrimmedReads=8
+ktrimmedBases=90
+kfilteredReads=0
+kfilteredBases=0
+outputReads=2500
+outputBases=249910
+
+gcPolymerRatio=0.000000

@@ -1,0 +1,36 @@
+#!/bin/bash
+
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-fungalrelease/execution
+tmpDir=$(mkdir -p "/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-fungalrelease/tmp.d418ef21" && echo "/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-fungalrelease/tmp.d418ef21")
+chmod 777 "$tmpDir"
+export _JAVA_OPTIONS=-Djava.io.tmpdir="$tmpDir"
+export TMPDIR="$tmpDir"
+export HOME="$HOME"
+(
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-fungalrelease/execution
+
+)
+out6f823463="${tmpDir}/out.$$" err6f823463="${tmpDir}/err.$$"
+mkfifo "$out6f823463" "$err6f823463"
+trap 'rm "$out6f823463" "$err6f823463"' EXIT
+tee '/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-fungalrelease/execution/stdout' < "$out6f823463" &
+tee '/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-fungalrelease/execution/stderr' < "$err6f823463" >&2 &
+(
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-fungalrelease/execution
+
+
+fungalrelease.sh -Xmx10g in=/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-fungalrelease/inputs/-1152505077/scaffolds.fasta out=assembly.scaffolds.fasta outc=assembly.contigs.fasta agp=assembly.agp legend=assembly.scaffolds.legend mincontig=200 minscaf=200 sortscaffolds=t sortcontigs=t overwrite=t
+)  > "$out6f823463" 2> "$err6f823463"
+echo $? > /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-fungalrelease/execution/rc.tmp
+(
+# add a .file in every empty directory to facilitate directory delocalization on the cloud
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-fungalrelease/execution
+find . -type d -exec sh -c '[ -z "$(ls -A '"'"'{}'"'"')" ] && touch '"'"'{}'"'"'/.file' \;
+)
+(
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-fungalrelease/execution
+sync
+
+
+)
+mv /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-fungalrelease/execution/rc.tmp /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-fungalrelease/execution/rc

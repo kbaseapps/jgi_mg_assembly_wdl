@@ -1,0 +1,40 @@
+#!/bin/bash
+
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-rqcfilt/execution
+tmpDir=$(mkdir -p "/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-rqcfilt/tmp.4ec90d83" && echo "/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-rqcfilt/tmp.4ec90d83")
+chmod 777 "$tmpDir"
+export _JAVA_OPTIONS=-Djava.io.tmpdir="$tmpDir"
+export TMPDIR="$tmpDir"
+export HOME="$HOME"
+(
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-rqcfilt/execution
+
+)
+out6f823463="${tmpDir}/out.$$" err6f823463="${tmpDir}/err.$$"
+mkfifo "$out6f823463" "$err6f823463"
+trap 'rm "$out6f823463" "$err6f823463"' EXIT
+tee '/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-rqcfilt/execution/stdout' < "$out6f823463" &
+tee '/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-rqcfilt/execution/stderr' < "$err6f823463" >&2 &
+(
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-rqcfilt/execution
+
+
+pwd
+       rqcfilter.sh -Xmx50G threads=4 in=/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-rqcfilt/inputs/621809747/548243e0-5272-45a3-8124-0064cd64bb7d.inter.fastq \
+          out=filtered.fastq.gz \
+          path=. rqcfilterdata=/refdata/RQCFilterData trimfragadapter=t qtrim=r trimq=10 maxns=0 maq=12 minlen=51 mlf=0.33 \
+          phix=t removehuman=t removedog=t removecat=t removemouse=t khist=t removemicrobes=f sketch=f kapa=t clumpify=t
+)  > "$out6f823463" 2> "$err6f823463"
+echo $? > /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-rqcfilt/execution/rc.tmp
+(
+# add a .file in every empty directory to facilitate directory delocalization on the cloud
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-rqcfilt/execution
+find . -type d -exec sh -c '[ -z "$(ls -A '"'"'{}'"'"')" ] && touch '"'"'{}'"'"'/.file' \;
+)
+(
+cd /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-rqcfilt/execution
+sync
+
+
+)
+mv /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-rqcfilt/execution/rc.tmp /cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-rqcfilt/execution/rc

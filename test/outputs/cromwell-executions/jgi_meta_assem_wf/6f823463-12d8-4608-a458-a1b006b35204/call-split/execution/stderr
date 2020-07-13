@@ -1,0 +1,17 @@
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-split/tmp.8c8fbbc0
+Executing jgi.MakeLengthHistogram [in=/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-split/inputs/-1334454390/filtered.bfc.fq.gz]
+
+Processed 887 reads.
+Time: 	0.732 seconds.
+java -ea -Xms300m -cp /bbmap/current/ jgi.ReformatReads overwrite=true in=/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-split/inputs/-1334454390/filtered.bfc.fq.gz out=read1.fasta out2=read2.fasta
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-split/tmp.8c8fbbc0
+Executing jgi.ReformatReads [overwrite=true, in=/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-split/inputs/-1334454390/filtered.bfc.fq.gz, out=read1.fasta, out2=read2.fasta]
+
+Set INTERLEAVED to true
+Input is being processed as paired
+Input:                  	886 reads          	87023 bases
+Output:                 	886 reads (100.00%) 	87023 bases (100.00%)
+
+Time:                         	0.275 seconds.
+Reads Processed:         886 	3.22k reads/sec
+Bases Processed:       87023 	0.32m bases/sec

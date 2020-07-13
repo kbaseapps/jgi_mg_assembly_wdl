@@ -1,0 +1,16 @@
+filtered_fastq=filtered.fastq.gz
+ihist=ihist_merge.txt
+khist=khist.txt
+peaks=peaks.txt
+spikeinstats=scaffoldStatsSpikein.txt
+scafstats1=scaffoldStats1.txt
+scafstats2=scaffoldStats2.txt
+refstats=refStats.txt
+adaptersDetected=adaptersDetected.fa
+chaffSynthReads1=synth1.fq.gz
+chaffSynthReads2=synth2.fq.gz
+chaffHumanReads=human.fq.gz
+polymerHist=phist.txt
+qualityHist=qhist.txt
+baseFrequencyHist=bhist.txt
+GCHist=gchist.txt

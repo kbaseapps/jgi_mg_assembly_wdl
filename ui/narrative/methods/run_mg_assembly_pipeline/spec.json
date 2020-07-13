@@ -1,0 +1,143 @@
+{
+    "ver": "0.0.1",
+    "authors": [
+        "wjriehl"
+    ],
+    "contact": "https://kbase.us/contact-us/",
+    "categories": ["active", "assembly", "communities"],
+    "widgets": {
+        "input": null,
+        "output": "no-display"
+    },
+    "parameters": [
+        {
+            "id": "reads_upa",
+            "optional": false,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": [ "" ],
+            "field_type": "text",
+            "text_options": {
+                "valid_ws_types": [
+                    "KBaseFile.PairedEndLibrary",
+                    "KBaseAssembly.PairedEndLibrary"
+                ]
+            }
+        },
+        {
+            "id": "output_assembly_name",
+            "optional": false,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": [ "" ],
+            "field_type": "text",
+            "text_options": {
+                "is_output_name": true,
+                "valid_ws_types": [
+                    "KBaseGenomeAnnotations.Assembly"
+                ]
+            }
+        },
+        {
+            "id": "skip_rqcfilter",
+            "optional": false,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": [0],
+            "field_type": "checkbox",
+            "checkbox_options": {
+                "checked_value": 1,
+                "unchecked_value": 0
+            }
+        },
+        {
+            "id": "filtered_reads_name",
+            "optional": true,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": [ "" ],
+            "field_type": "text",
+            "text_options": {
+                "is_output_name": true,
+                "valid_ws_types": [
+                    "KBaseFile.PairedEndLibrary"
+                ]
+            }
+        },
+        {
+            "id": "cleaned_reads_name",
+            "optional": true,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": [ "" ],
+            "field_type": "text",
+            "text_options": {
+                "is_output_name": true,
+                "valid_ws_types": [
+                    "KBaseFile.PairedEndLibrary"
+                ]
+            }
+        }
+    ],
+    "behavior": {
+        "service-mapping": {
+            "url": "",
+            "name": "jgi_mg_assembly_wdl",
+            "method": "run_jgi_mg_assembly_wdl",
+            "input_mapping": [
+                {
+                    "narrative_system_variable": "workspace",
+                    "target_property": "workspace_name"
+                },
+                {
+                    "input_parameter": "reads_upa",
+                    "target_property": "reads_upa",
+                    "target_type_transform": "resolved-ref"
+                },
+                {
+                    "input_parameter": "output_assembly_name",
+                    "target_property": "output_assembly_name"
+                },
+                {
+                    "input_parameter": "skip_rqcfilter",
+                    "target_property": "skip_rqcfilter"
+                },
+                {
+                    "input_parameter": "filtered_reads_name",
+                    "target_property": "filtered_reads_name"
+                },
+                {
+                    "input_parameter": "cleaned_reads_name",
+                    "target_property": "cleaned_reads_name"
+                }
+            ],
+            "output_mapping": [
+                {
+                    "service_method_output_path": [0, "assembly_upa"],
+                    "target_property": "assembly_upa"
+                },
+                {
+                    "service_method_output_path": [0, "report_name"],
+                    "target_property": "report_name"
+                },
+                {
+                    "service_method_output_path": [0, "report_ref"],
+                    "target_property": "report_ref"
+                },
+                {
+                    "narrative_system_variable": "workspace",
+                    "target_property": "workspace_name"
+                },
+                {
+                    "service_method_output_path": [0, "cleaned_reads_upa"],
+                    "target_property": "cleaned_reads_upa"
+                },
+                {
+                    "service_method_output_path": [0, "filtered_reads_upa"],
+                    "target_property": "filtered_reads_upa"
+                }
+            ]
+        }
+    },
+    "job_id_output_field": "docker"
+}

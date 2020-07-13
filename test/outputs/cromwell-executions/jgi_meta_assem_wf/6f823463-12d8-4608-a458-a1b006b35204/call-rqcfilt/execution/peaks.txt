@@ -1,0 +1,1 @@
+#start	center	stop	max	volume	gc

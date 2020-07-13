@@ -1,0 +1,6 @@
+- "left reads":
+  - "/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/inputs/-2136479803/read1.fasta"
+  "orientation": "fr"
+  "right reads":
+  - "/cromwell-executions/jgi_meta_assem_wf/6f823463-12d8-4608-a458-a1b006b35204/call-spades/inputs/-2136479803/read2.fasta"
+  "type": "paired-end"
