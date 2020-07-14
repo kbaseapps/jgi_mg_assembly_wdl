@@ -29,13 +29,14 @@ class jgi_mg_assembly:
             "jgi_meta_assem_wf.input_file": rf,
             "jgi_meta_assem_wf.threads": "4"
         }
-        input_file = os.path.join(self.scratch, 'input.json')
+        ifile = 'input.json'
+        input_file = os.path.join(self.scratch, ifile)
         with open(input_file, 'w') as f:
             f.write(json.dumps(ins))
 
         p = {
             'workflow': wdl_file,
-            'inputs': input_file
+            'inputs': ifile
         }
 
         res = self.special.wdl(p)
