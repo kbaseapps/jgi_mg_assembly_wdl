@@ -16,7 +16,8 @@
   "version_tag" : "release"
 }, {
   "module_name" : "special",
-  "type" : "core",
+  "type" : "sdk",
+  "version_tag" : "release",
   "file_path" : "https://raw.githubusercontent.com/kbase/JobRunner/ee2/special.spec"
 }, {
   "module_name" : "Workspace",
