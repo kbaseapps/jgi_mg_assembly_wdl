@@ -41,6 +41,8 @@ class jgi_mg_assembly_wdlTest(unittest.TestCase):
 
     def test_assemble(self):
         assem = jgi_mg_assembly('http://localhost:8000', self.scratch)
+        if not os.path.exists('/kb/module/jgi_meta_spades.wdl'):
+            assem.wdl_file = '../jgi_meta_spades.wdl'
         params = {
             'reads_upa': '1/2/3',
             "cleaned_reads_name": None,

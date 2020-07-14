@@ -15,15 +15,14 @@ class jgi_mg_assembly:
         self.file_util = FU(callbaack_url)
         self.special = special(self.callback_url)
         self.report = KBaseReport(self.callback_url)
+        self.wdl_file = '/kb/module/jgi_meta_spades.wdl'
 
     def validate_params(self, params):
         pass
 
     def run_wdl(self, rf):
         wdl_file = 'jgi_meta_spades.wdl'
-        src = '../' + wdl_file
-        dst = './' + wdl_file
-        shutil.copy(src, dst)
+        shutil.copy(self.wdl_file, wdl_file)
         ins = {'name': 'KBase'}
         ins = {
             "jgi_meta_assem_wf.input_file": rf,
