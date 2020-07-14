@@ -56,8 +56,11 @@ class jgi_mg_assembly_wdlTest(unittest.TestCase):
         cls.scratch = cls.cfg['scratch']
         cls.callback_url = os.environ['SDK_CALLBACK_URL']
         suffix = int(time.time() * 1000)
-        cls.wsName = "test_ContigFilter_" + str(suffix)
+        cls.wsName = "test_jgi_mg_assemb_" + str(suffix)
         ret = cls.wsClient.create_workspace({'workspace': cls.wsName})  # noqa
+        cls.testWS = 'KBaseTestData'
+        cls.testReads = 'small.interlaced_reads'
+
 
     @classmethod
     def tearDownClass(cls):
@@ -77,13 +80,16 @@ class jgi_mg_assembly_wdlTest(unittest.TestCase):
         #
         # Check returned data with
         # self.assertEqual(ret[...], ...) or other unittest methods
+        ret = self.wsClient.copy_object({'from': {'workspace': self.testWS, 'name': self.testReads}, 
+                        'to': {'workspace': self.wsName, 'name': self.testReads}})
+        upa = '{}/{}/{}'.format(ret[6], ret[0], ret[4])
         params = {
             "cleaned_reads_name": None,
             "filtered_reads_name": "mock2pct",
             "output_assembly_name": "mock2pct_ass",
-            "reads_upa": "52374/4/1",
+            "reads_upa": upa,
             "skip_rqcfilter": 0,
-            "workspace_name": "scanon:narrative_1594487998614"
+            "workspace_name": self.wsName
         }
         
         meta = self.meta
