@@ -22,7 +22,8 @@ class jgi_mg_assembly:
 
     def run_wdl(self, rf):
         wdl_file = 'jgi_meta_spades.wdl'
-        shutil.copy(self.wdl_file, wdl_file)
+        dst = os.path.join(self.scratch, wdl_file)
+        shutil.copy(self.wdl_file, dst)
         ins = {'name': 'KBase'}
         ins = {
             "jgi_meta_assem_wf.input_file": rf,
