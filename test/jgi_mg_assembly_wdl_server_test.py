@@ -93,7 +93,7 @@ class jgi_mg_assembly_wdlTest(unittest.TestCase):
         }
         
         meta = self.meta
-        with open('meta.json', 'w') as f:
+        with open(os.path.join(self.scratch, 'meta.json'), 'w') as f:
             f.write(json.dumps(meta))
         tgt = os.path.join(self.scratch, 'cromwell-executions')
         if not os.path.exists(tgt):

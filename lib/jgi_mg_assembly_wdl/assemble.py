@@ -117,10 +117,11 @@ class jgi_mg_assembly:
         self.run_wdl(reads_files[0])
 
         # Check if things ran
-        if not os.path.exists('meta.json'):
+        mfile = os.path.join(self.scratch, 'meta.json')
+        if not os.path.exists(mfile):
             raise OSError("Failed to run workflow")
 
-        with open('meta.json') as f:
+        with open(mfile) as f:
             pipeline_output = json.loads(f.read())['outputs']
 
         # Generate Output Objects
