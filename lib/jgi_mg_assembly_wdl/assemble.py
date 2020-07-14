@@ -24,9 +24,10 @@ class jgi_mg_assembly:
         wdl_file = 'jgi_meta_spades.wdl'
         dst = os.path.join(self.scratch, wdl_file)
         shutil.copy(self.wdl_file, dst)
-        ins = {'name': 'KBase'}
+        # Make the input file relative
+        in_file = rf.replace(self.scratch, './')
         ins = {
-            "jgi_meta_assem_wf.input_file": rf,
+            "jgi_meta_assem_wf.input_file": in_file,
             "jgi_meta_assem_wf.threads": "4"
         }
         ifile = 'input.json'
