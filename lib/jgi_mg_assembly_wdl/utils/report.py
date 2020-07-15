@@ -18,6 +18,8 @@ class ReportUtil(object):
     def __init__(self, callback_url, output_dir):
         self.callback_url = callback_url
         self.output_dir = output_dir
+        self.report_client = KBaseReport(self.callback_url)
+        self.dfu = DataFileUtil(self.callback_url)
 
     def make_report(self, pipeline_output, workspace_name, saved_objects):
         """
@@ -102,13 +104,18 @@ class ReportUtil(object):
         assert pipeline_output, "Pipeline output not found!"
         assert workspace_name, "A workspace name is required!"
 
-        required_counts = ["reads_info_prefiltered", "reads_info_filtered", "reads_info_corrected"]
-        for req in required_counts:
-            assert req in pipeline_output, "Required reads info '{}' is not present!".format(req)
+        assert 'outputs' in pipeline_output, "Missing outputs from run"
+        outputs = pipeline_output['outputs']
+
+        # required_counts = ["reads_info_prefiltered", "reads_info_filtered", "reads_info_corrected"]
+        # for req in required_counts:
+        #     assert req in pipeline_output, "Required reads info '{}' is not present!".format(req)
         if not saved_objects:
             saved_objects = list()
 
-        pipeline_output["report_graphics"] = generate_graphics(pipeline_output["bbmap"]["coverage_file"], self.output_dir)
+        # pipeline_output["report_graphics"] = generate_graphics(pipeline_output["bbmap"]["coverage_file"], self.output_dir)
+        covfile = self._fix_path(outputs["jgi_meta_assem_wf.bbmap.covstats"])
+        pipeline_output["report_graphics"] = generate_graphics(covfile, self.output_dir)
 
         # Make the html report
         html_report_dir = os.path.join(self.output_dir, "report")
@@ -118,7 +125,7 @@ class ReportUtil(object):
 
         # Write the command info file
         pipeline_info_file = os.path.join(html_report_dir, "pipeline_info.json")
-        self._write_pipeline_info_file(pipeline_output, pipeline_info_file)
+        # self._write_pipeline_info_file(pipeline_output, pipeline_info_file)
 
         result_file = os.path.join(self.output_dir, "assembly_report.zip")
         report_files = {
@@ -133,12 +140,13 @@ class ReportUtil(object):
         }
         with zipfile.ZipFile(result_file, 'w', zipfile.ZIP_DEFLATED, allowZip64=True) as report_zip:
             # add reads info report
-            for step, file_list in report_files.items():
-                for f in file_list:
-                    if f in pipeline_output[step] and os.path.exists(pipeline_output[step][f]):
-                        zip_path = os.path.join(step, os.path.basename(pipeline_output[step][f]))
-                        report_zip.write(pipeline_output[step][f], zip_path)
-            report_zip.write(pipeline_info_file, "pipeline_info.json")
+            # TODO
+            # for step, file_list in report_files.items():
+            #     for f in file_list:
+            #         if f in pipeline_output[step] and os.path.exists(pipeline_output[step][f]):
+            #             zip_path = os.path.join(step, os.path.basename(pipeline_output[step][f]))
+            #             report_zip.write(pipeline_output[step][f], zip_path)
+            # report_zip.write(pipeline_info_file, "pipeline_info.json")
             report_zip.write(html_file_name, "report.html")
 
         file_links = [{
@@ -149,57 +157,69 @@ class ReportUtil(object):
         }]
         return self._upload_report(html_report_dir, file_links, workspace_name, saved_objects)
 
-    def _write_pipeline_info_file(self, pipeline_output, info_file):
-        pipeline_steps = []
-        for step in ["reads_info_prefiltered", "rqcfilter", "reads_info_filtered", "bfc", "seqtk", "reads_info_corrected", "spades", "agp", "stats", "bbmap"]:
-            pipeline_steps.append({
-                "step": step,
-                "command": pipeline_output[step]["command"],
-                "version": pipeline_output[step]["version_string"]
-            })
-        with open(info_file, "w") as f:
-            f.write(json.dumps(pipeline_steps, indent=4))
+    # def _write_pipeline_info_file(self, pipeline_output, info_file):
+    #     pipeline_steps = []
+    #     for step in ["reads_info_prefiltered", "rqcfilter", "reads_info_filtered", "bfc", "seqtk", "reads_info_corrected", "spades", "agp", "stats", "bbmap"]:
+    #         pipeline_steps.append({
+    #             "step": step,
+    #             "command": pipeline_output[step]["command"],
+    #             "version": pipeline_output[step]["version_string"]
+    #         })
+    #     with open(info_file, "w") as f:
+    #         f.write(json.dumps(pipeline_steps, indent=4))
 
     def _write_html_file(self, html_file_name, pipeline_output):
         """
         Assembles and writes out an HTML report file, following the idoms developed by JGI.
         Right now, this just cobbles together text into a single <pre> formatted HTML file.
         """
+        outputs = pipeline_output['outputs']
         header = "Assembly using the JGI metagenome assembly pipeline, interpreted by KBase\n\n"
 
-        filter_percent = self._percent_reads(pipeline_output["reads_info_filtered"]["count"], pipeline_output["reads_info_prefiltered"]["count"])
-        corrected_percent = self._percent_reads(pipeline_output["reads_info_corrected"]["count"],
-                                                pipeline_output["reads_info_prefiltered"]["count"])
+        # filter_percent = self._percent_reads(pipeline_output["reads_info_filtered"]["count"], pipeline_output["reads_info_prefiltered"]["count"])
+        # corrected_percent = self._percent_reads(pipeline_output["reads_info_corrected"]["count"],
+        #                                         pipeline_output["reads_info_prefiltered"]["count"])
+        counts = {
+            "reads_info_prefiltered": 0,
+            "reads_info_filtered": 0,
+            "filter_percent": 0,
+            "reads_info_corrected": 0,
+            "corrected_percent": 0}
         read_processing = (
             "Read Pre-processing\n"
             "The number of raw input reads is: {}\n"
             "The number of reads remaining after quality filter: {} ({}% of raw)\n"
             "The final number of reads remaining "
             "after read correction: {} ({}% of raw)\n\n"
-        ).format(pipeline_output["reads_info_prefiltered"]["count"],
-                 pipeline_output["reads_info_filtered"]["count"],
-                 filter_percent,
-                 pipeline_output["reads_info_corrected"]["count"],
-                 corrected_percent)
+        ).format(counts["reads_info_prefiltered"],
+                 counts["reads_info_filtered"],
+                 counts["filter_percent"],
+                 counts["reads_info_corrected"],
+                 counts["corrected_percent"])
 
-        with open(pipeline_output["stats"]["stats_txt"], "r") as stats:
+        sfile = self._fix_path(outputs['jgi_meta_assem_wf.stats.statstxt'])
+        # with open(pipeline_output["stats"]["stats_txt"], "r") as stats:
+        with open(sfile, "r") as stats:
             assembly_stats_file = "".join(stats.readlines())
         assembly_stats = "Assembly stats:\n{}".format(assembly_stats_file)
 
-        counts = self._calc_alignment_counts(pipeline_output["bbmap"]["stats_file"])
-        m50, m90 = self._calc_m50_m90(pipeline_output["bbmap"]["coverage_file"], counts["input_reads"])
+        # TODO
+        # counts = self._calc_alignment_counts(pipeline_output["bbmap"]["stats_file"])
+        covfile = self._fix_path(outputs['jgi_meta_assem_wf.bbmap.covstats'])
+        # m50, m90 = self._calc_m50_m90(covfile, counts["input_reads"])
         alignment_stats = "Alignment of reads to final assembly:\n"
-        if "error" in counts:
-            alignment_stats = alignment_stats + "An error occurred! Unable to calculate alignment stats: {}".format(counts["error"])
-        else:
-            alignment_stats = alignment_stats + (
-                "The number of reads used as input to aligner is: {}\n"
-                "The number of aligned reads is: {} ({})\n"
-                "m50/m90 (length where 50% or 90% of reads align to "
-                "contigs of this length or larger) is: {}/{}\n\n"
-            ).format(counts["input_reads"], counts["aligned"], counts["aligned_percent"], m50, m90)
+        # if "error" in counts:
+        #     alignment_stats = alignment_stats + "An error occurred! Unable to calculate alignment stats: {}".format(counts["error"])
+        # else:
+        #     alignment_stats = alignment_stats + (
+        #         "The number of reads used as input to aligner is: {}\n"
+        #         "The number of aligned reads is: {} ({})\n"
+        #         "m50/m90 (length where 50% or 90% of reads align to "
+        #         "contigs of this length or larger) is: {}/{}\n\n"
+        #     ).format(counts["input_reads"], counts["aligned"], counts["aligned_percent"], m50, m90)
 
-        protocol = self._protocol_text(pipeline_output)
+        # protocol = self._protocol_text(pipeline_output)
+        protocol = ""
 
         html_content = "<html><pre>{}{}{}{}{}</pre></html>".format(
             header,
@@ -346,8 +366,7 @@ version 1.0.0 (5). It is based on the JGI pipeline: jgi_mg_meta_rqc.py (version 
         return m50, m90
 
     def _upload_report(self, report_dir, file_links, workspace_name, saved_objects):
-        dfu = DataFileUtil(self.callback_url)
-        upload_info = dfu.file_to_shock({
+        upload_info = self.dfu.file_to_shock({
             'file_path': report_dir,
             'pack': 'zip'
         })
@@ -367,9 +386,14 @@ version 1.0.0 (5). It is based on the JGI pipeline: jgi_mg_meta_rqc.py (version 
             'objects_created': saved_objects
         }
 
-        report_client = KBaseReport(self.callback_url)
-        report = report_client.create_extended_report(report_params)
+        report = self.report_client.create_extended_report(report_params)
         return {
             'report_ref': report['ref'],
             'report_name': report['name']
         }
+
+    def _fix_path(self, orig):
+        ind = orig.find('cromwell-executions')
+        return os.path.join(self.output_dir, orig[ind:])
+
+        

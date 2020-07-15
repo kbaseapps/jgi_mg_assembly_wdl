@@ -10,6 +10,9 @@ MAINTAINER KBase Developer
 RUN \
     apt-get -y install pigz
 
+RUN \
+    conda install -y python=3.6.3 pandas matplotlib jinja2
+
 # -----------------------------------------
 
 COPY ./ /kb/module
