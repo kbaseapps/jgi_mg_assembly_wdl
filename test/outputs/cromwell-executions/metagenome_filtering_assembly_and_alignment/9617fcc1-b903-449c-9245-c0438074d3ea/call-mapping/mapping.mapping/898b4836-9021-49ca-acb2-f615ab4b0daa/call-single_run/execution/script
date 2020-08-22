@@ -1,0 +1,39 @@
+#!/bin/bash
+
+cd /cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-mapping/mapping.mapping/898b4836-9021-49ca-acb2-f615ab4b0daa/call-single_run/execution
+tmpDir=$(mkdir -p "/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-mapping/mapping.mapping/898b4836-9021-49ca-acb2-f615ab4b0daa/call-single_run/tmp.e0bc88e9" && echo "/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-mapping/mapping.mapping/898b4836-9021-49ca-acb2-f615ab4b0daa/call-single_run/tmp.e0bc88e9")
+chmod 777 "$tmpDir"
+export _JAVA_OPTIONS=-Djava.io.tmpdir="$tmpDir"
+export TMPDIR="$tmpDir"
+export HOME="$HOME"
+(
+cd /cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-mapping/mapping.mapping/898b4836-9021-49ca-acb2-f615ab4b0daa/call-single_run/execution
+
+)
+out898b4836="${tmpDir}/out.$$" err898b4836="${tmpDir}/err.$$"
+mkfifo "$out898b4836" "$err898b4836"
+trap 'rm "$out898b4836" "$err898b4836"' EXIT
+tee '/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-mapping/mapping.mapping/898b4836-9021-49ca-acb2-f615ab4b0daa/call-single_run/execution/stdout' < "$out898b4836" &
+tee '/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-mapping/mapping.mapping/898b4836-9021-49ca-acb2-f615ab4b0daa/call-single_run/execution/stderr' < "$err898b4836" >&2 &
+(
+cd /cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-mapping/mapping.mapping/898b4836-9021-49ca-acb2-f615ab4b0daa/call-single_run/execution
+
+
+bbmap.sh threads=$(nproc)  nodisk=true \
+interleaved=true ambiguous=random rgid=filename \
+in=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-mapping/mapping.mapping/898b4836-9021-49ca-acb2-f615ab4b0daa/call-single_run/inputs/-1885903553/rqcfilter.output.fastq.gz ref=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-mapping/mapping.mapping/898b4836-9021-49ca-acb2-f615ab4b0daa/call-single_run/inputs/1239197184/assembly.contigs.fasta out=pairedMapped.bam
+samtools sort -m200M -@ $(nproc) pairedMapped.bam -o pairedMapped_sorted.bam
+)  > "$out898b4836" 2> "$err898b4836"
+echo $? > /cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-mapping/mapping.mapping/898b4836-9021-49ca-acb2-f615ab4b0daa/call-single_run/execution/rc.tmp
+(
+# add a .file in every empty directory to facilitate directory delocalization on the cloud
+cd /cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-mapping/mapping.mapping/898b4836-9021-49ca-acb2-f615ab4b0daa/call-single_run/execution
+find . -type d -exec sh -c '[ -z "$(ls -A '"'"'{}'"'"')" ] && touch '"'"'{}'"'"'/.file' \;
+)
+(
+cd /cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-mapping/mapping.mapping/898b4836-9021-49ca-acb2-f615ab4b0daa/call-single_run/execution
+sync
+
+
+)
+mv /cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-mapping/mapping.mapping/898b4836-9021-49ca-acb2-f615ab4b0daa/call-single_run/execution/rc.tmp /cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-mapping/mapping.mapping/898b4836-9021-49ca-acb2-f615ab4b0daa/call-single_run/execution/rc

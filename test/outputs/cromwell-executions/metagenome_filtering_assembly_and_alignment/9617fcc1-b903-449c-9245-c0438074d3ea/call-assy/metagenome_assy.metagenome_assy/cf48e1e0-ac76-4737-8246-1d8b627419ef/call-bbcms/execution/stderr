@@ -1,0 +1,5 @@
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-assy/metagenome_assy.metagenome_assy/cf48e1e0-ac76-4737-8246-1d8b627419ef/call-bbcms/tmp.159ce014
+Executing jgi.MakeLengthHistogram [-Xmx1g, in=bbcms.input.fastq.gz, out=readlen.txt, overwrite]
+
+Processed 2500 reads.
+Time: 	1.157 seconds.

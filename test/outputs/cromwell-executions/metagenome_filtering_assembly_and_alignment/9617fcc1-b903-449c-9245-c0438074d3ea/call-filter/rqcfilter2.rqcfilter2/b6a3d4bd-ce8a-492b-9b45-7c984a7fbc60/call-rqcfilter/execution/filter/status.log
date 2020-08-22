@@ -1,0 +1,48 @@
+bbtools filter start, 2020-08-21 14:45:42
+findAdapters start, 2020-08-21 14:45:45
+findAdapters finish, 2020-08-21 14:45:45
+clumpify start, 2020-08-21 14:45:45
+clumpify finish, 2020-08-21 14:45:45
+ktrim start, 2020-08-21 14:45:45
+#Input:	2500 reads	250000 bases	78263 kmers
+#Remaining:	2500 reads	249910 bases	75034 kmers
+ktrim finish, 2020-08-21 14:45:46
+delete temp files start, 2020-08-21 14:45:46
+delete temp files finish, 2020-08-21 14:45:46
+filterSpikein start, 2020-08-21 14:45:46
+#Input:	2500 reads	249910 bases	74549 kmers
+#Remaining:	2500 reads	249910 bases	75605 kmers
+filterSpikein finish, 2020-08-21 14:45:46
+delete temp files start, 2020-08-21 14:45:46
+delete temp files finish, 2020-08-21 14:45:46
+filter start, 2020-08-21 14:45:46
+#Input:	2500 reads	249910 bases	79424 kmers
+#Remaining:	2500 reads	249846 bases	77117 kmers
+filter finish, 2020-08-21 14:45:48
+delete temp files start, 2020-08-21 14:45:48
+delete temp files finish, 2020-08-21 14:45:48
+short filter start, 2020-08-21 14:45:48
+#Input:	2500 reads	249846 bases	80631 kmers
+#Remaining:	2500 reads	249846 bases	75305 kmers
+short filter finish, 2020-08-21 14:45:48
+delete temp files start, 2020-08-21 14:45:48
+delete temp files finish, 2020-08-21 14:45:48
+removeCommonMicrobes start, 2020-08-21 14:45:55
+#Input:	2500 reads	2500 bases
+#Remaining:	249846 reads	249846 bases
+removeCommonMicrobes finish, 2020-08-21 14:46:12
+delete temp files start, 2020-08-21 14:46:12
+delete temp files finish, 2020-08-21 14:46:12
+dehumanize start, 2020-08-21 14:46:12
+#Input:	2500 reads	249846 bases
+#Remaining:	2500 reads	249846 bases
+dehumanize finish, 2020-08-21 14:47:11
+delete temp files start, 2020-08-21 14:47:11
+delete temp files finish, 2020-08-21 14:47:11
+merge start, 2020-08-21 14:47:11
+#Input:	2500 reads	249846 bases	76124 kmers
+#Remaining:	2500 reads	249846 bases	76124 kmers
+merge finish, 2020-08-21 14:47:23
+khist start, 2020-08-21 14:47:23
+khist finish, 2020-08-21 14:47:27
+RQCFilter complete, 2020-08-21 14:47:27

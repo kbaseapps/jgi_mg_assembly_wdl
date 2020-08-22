@@ -1,0 +1,5 @@
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/tmp.78844a64
+Executing jgi.MakeLengthHistogram [-Xmx1g, in=rqcfilter.input.fastq.gz, out=readlen.txt, overwrite]
+
+Processed 2500 reads.
+Time: 	0.244 seconds.

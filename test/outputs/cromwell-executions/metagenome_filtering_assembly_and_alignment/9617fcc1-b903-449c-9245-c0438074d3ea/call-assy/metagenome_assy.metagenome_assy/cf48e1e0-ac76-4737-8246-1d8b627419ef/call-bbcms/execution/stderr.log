@@ -1,0 +1,29 @@
+java -ea -Xmx20g -Xms20g -cp /bbmap/current/ bloom.BloomFilterCorrectorWrapper -Xmx20g metadatafile=counts.metadata.json mincount=2 highcountfraction=0.6 in=bbcms.input.fastq.gz out1=input.corr.left.fastq.gz out2=input.corr.right.fastq.gz
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-assy/metagenome_assy.metagenome_assy/cf48e1e0-ac76-4737-8246-1d8b627419ef/call-bbcms/tmp.159ce014
+Executing bloom.BloomFilterCorrectorWrapper [-Xmx20g, metadatafile=counts.metadata.json, mincount=2, highcountfraction=0.6, in=bbcms.input.fastq.gz, out1=input.corr.left.fastq.gz, out2=input.corr.right.fastq.gz]
+
+Using 4 bits per cell.
+Set INTERLEAVED to true
+Memory: max=21474m, total=21474m, free=21458m, used=16m
+Filter creation: 		7.218 seconds.
+mem = 16.30 GB   	cells = 35.01B   	used = 0.001%
+Estimated kmers of depth 1+: 	94861
+Estimated kmers of depth 2+: 	39770
+Used fraction for depth 2+:  	0.000%
+Input is being processed as paired
+
+Filtering Time:  		0.186 seconds.
+Time:                         	8.750 seconds.
+Reads Processed:        2500 	0.29k reads/sec
+Bases Processed:        249k 	0.03m bases/sec
+Reads Out:               970 	38.80%
+Bases Out:             96872 	38.77%
+Unique 31-mers out:     	36999
+
+Errors detected:            	610
+Errors corrected:           	422     	(422 reassemble, 0 overlap)
+Reads merged:               	0       	(0.00%)
+Reads with errors detected: 	465     	(18.60%)
+Reads fully corrected:      	305     	(65.59% of detected)
+Reads partly corrected:     	25      	(5.38% of detected)
+Rollbacks:                  	5       	(1.08% of detected)

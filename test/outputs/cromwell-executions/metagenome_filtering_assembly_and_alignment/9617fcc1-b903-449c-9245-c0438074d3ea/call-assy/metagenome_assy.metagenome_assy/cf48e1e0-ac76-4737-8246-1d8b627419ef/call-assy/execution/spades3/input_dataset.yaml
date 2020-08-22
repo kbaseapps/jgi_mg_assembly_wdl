@@ -1,0 +1,6 @@
+- "left reads":
+  - "/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-assy/metagenome_assy.metagenome_assy/cf48e1e0-ac76-4737-8246-1d8b627419ef/call-assy/inputs/1590640610/input.corr.left.fastq.gz"
+  "orientation": "fr"
+  "right reads":
+  - "/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-assy/metagenome_assy.metagenome_assy/cf48e1e0-ac76-4737-8246-1d8b627419ef/call-assy/inputs/1590640610/input.corr.right.fastq.gz"
+  "type": "paired-end"

@@ -1,0 +1,452 @@
+java -ea -Xmx45508m -Xms45508m -cp /bbmap/current/ jgi.RQCFilter2 jni=t in=rqcfilter.input.fastq.gz path=filter rna=f trimfragadapter=t qtrim=r trimq=0 maxns=3 maq=3 minlen=51 mlf=0.33 phix=t removehuman=t removedog=t removecat=t removemouse=t khist=t removemicrobes=t sketch kapa=t clumpify=t tmpdir= barcodefilter=f trimpolyg=5 usejni=f rqcfilterdata=/refdata/RQCFilterData out=../rqcfilter.output.fastq.gz
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/tmp.78844a64
+Executing jgi.RQCFilter2 [jni=t, in=rqcfilter.input.fastq.gz, path=filter, rna=f, trimfragadapter=t, qtrim=r, trimq=0, maxns=3, maq=3, minlen=51, mlf=0.33, phix=t, removehuman=t, removedog=t, removecat=t, removemouse=t, khist=t, removemicrobes=t, sketch, kapa=t, clumpify=t, tmpdir=, barcodefilter=f, trimpolyg=5, usejni=f, rqcfilterdata=/refdata/RQCFilterData, out=../rqcfilter.output.fastq.gz]
+Version 38.44
+
+Adding /bbmap/resources/blacklist_nt_species_500.sketch to blacklist.
+0.035 seconds.
+Loaded 1 sketch in 0.445 seconds.
+Total Time: 	1.101 seconds.
+Adding /bbmap/resources/blacklist_refseq_species_250.sketch to blacklist.
+Loaded 1 sketch in 0.102 seconds.
+Total Time: 	0.624 seconds.
+Total Time: 	0.196 seconds.
+Adding /bbmap/resources/blacklist_prokprot_merged.sketch to blacklist.
+Loaded 1 sketch in 0.180 seconds.
+Total Time: 	0.462 seconds.
+Executing jgi.BBMerge [overwrite=true, in1=rqcfilter.input.fastq.gz, outa=filter/adaptersDetected.fa, reads=1m]
+Version 38.44
+
+Adapters counted: 0
+Total time: 0.074 seconds.
+
+Pairs:               	1250
+Joined:              	0       	0.000%
+Ambiguous:           	1250       	100.000%
+No Solution:         	0       	0.000%
+Too Short:           	0       	0.000%
+
+Avg Insert:          	NaN
+Standard Deviation:  	0.0
+Mode:                	0
+
+Insert range:        	999999999 - 0
+90th percentile:     	0
+75th percentile:     	0
+50th percentile:     	0
+25th percentile:     	0
+10th percentile:     	0
+Executing clump.Clumpify [pigz=t, unpigz=t, zl=4, reorder, in1=rqcfilter.input.fastq.gz, out1=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/tmp.78844a64/TEMP_CLUMP_59eaf509b9f29d0645fe86d03f2af_rqcfilter.output.fastq.gz, passes=1]
+Version 38.44
+
+Read Estimate:          12678
+Memory Estimate:        9 MB
+Memory Available:       35723 MB
+Set groups to 1
+Executing clump.KmerSort1 [in1=rqcfilter.input.fastq.gz, in2=, out1=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/tmp.78844a64/TEMP_CLUMP_59eaf509b9f29d0645fe86d03f2af_rqcfilter.output.fastq.gz, out2=, groups=1, ecco=false, rename=false, shortname=f, unpair=false, repair=false, namesort=false, ow=true, pigz=t, unpigz=t, zl=4, reorder, passes=1]
+
+Making comparator.
+Made a comparator with k=31, seed=1, border=1, hashes=4
+Starting cris 0.
+Fetching reads.
+Making fetch threads.
+Starting threads.
+Waiting for threads.
+Fetch time: 	0.075 seconds.
+Closing input stream.
+Combining thread output.
+Combine time: 	0.000 seconds.
+Sorting.
+Sort time: 	0.002 seconds.
+Making clumps.
+Clump time: 	0.006 seconds.
+Writing.
+Waiting for writing to complete.
+Write time: 	0.027 seconds.
+Done!
+Time:                         	0.132 seconds.
+Reads Processed:          2500 	18.92k reads/sec
+Bases Processed:          250k 	1.89m bases/sec
+
+Reads In:                 2500
+Clumps Formed:            1642
+Total time: 	0.133 seconds.
+Executing jgi.BBDuk [ktrim=r, ordered, minlen=51, minlenfraction=0.33, mink=11, tbo, tpe, rcomp=f, overwrite=true, k=23, hdist=1, hdist2=1, ftm=5, pratio=G,C, plen=20, phist=filter/phist.txt, qhist=filter/qhist.txt, bhist=filter/bhist.txt, gchist=filter/gchist.txt, pigz=t, unpigz=t, zl=4, ow=true, in1=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/tmp.78844a64/TEMP_CLUMP_59eaf509b9f29d0645fe86d03f2af_rqcfilter.output.fastq.gz, out1=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/tmp.78844a64/TEMP_TRIM_59eaf509b9f29d0645fe86d03f2af_rqcfilter.output.fastq.gz, rqc=hashmap, outduk=filter/ktrim_kmerStats1.txt, stats=filter/ktrim_scaffoldStats1.txt, loglog, loglogout, ref=/refdata/RQCFilterData/adapters2.fa.gz]
+Version 38.44
+
+Set quality histogram output to filter/qhist.txt
+Set base content histogram output to filter/bhist.txt
+Set GC histogram output to filter/gchist.txt
+Set ORDERED to true
+maskMiddle was disabled because useShortKmers=true
+0.016 seconds.
+Initial:
+Memory: max=45730m, total=45730m, free=44271m, used=1459m
+
+Added 431294 kmers; time: 	0.155 seconds.
+Memory: max=45730m, total=45730m, free=43965m, used=1765m
+
+Input is being processed as paired
+Started output streams:	0.005 seconds.
+Processing time:   		0.188 seconds.
+
+Input:                  	2500 reads 		250000 bases.
+FTrimmed:               	0 reads (0.00%) 	0 bases (0.00%)
+KTrimmed:               	8 reads (0.32%) 	90 bases (0.04%)
+Trimmed by overlap:     	0 reads (0.00%) 	0 bases (0.00%)
+Polymer Counts:         	0 G               	0 C               	(0.0000 ratio)
+Total Removed:          	0 reads (0.00%) 	90 bases (0.04%)
+Result:                 	2500 reads (100.00%) 	249910 bases (99.96%)
+Unique 31-mers:         	78263
+Unique 31-mers out:     	75034
+
+Time:                         	0.393 seconds.
+Reads Processed:        2500 	6.36k reads/sec
+Bases Processed:        250k 	0.64m bases/sec
+Adapter Sequence Removed:	0 reads (0.00%)	90 bases (0.04%)
+Executing jgi.Seal [ordered, overwrite=true, k=31, hdist=0, pigz=t, unpigz=t, zl=6, in1=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/tmp.78844a64/TEMP_TRIM_59eaf509b9f29d0645fe86d03f2af_rqcfilter.output.fastq.gz, outu1=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/tmp.78844a64/TEMP_SPIKEIN_59eaf509b9f29d0645fe86d03f2af_rqcfilter.output.fastq.gz, outm=filter/spikein.fq.gz, stats=filter/scaffoldStatsSpikein.txt, loglog, loglogout, ref=/refdata/RQCFilterData/kapatags.L40.fa.gz]
+Version 38.44
+
+Set ORDERED to true
+0.014 seconds.
+Initial:
+Memory: max=45730m, total=45730m, free=43112m, used=2618m
+
+Added 1232 kmers; time: 	0.044 seconds.
+Memory: max=45730m, total=45730m, free=42737m, used=2993m
+
+Input is being processed as paired
+Started output streams:	0.008 seconds.
+Processing time:   		0.140 seconds.
+
+Input:                  	2500 reads 		249910 bases.
+Matched reads:          	0 reads (0.00%) 	0 bases (0.00%)
+Unmatched reads:        	2500 reads (100.00%) 	249910 bases (100.00%)
+Unique 31-mers:         	74549
+Unique 31-mers out:     	75605
+
+Time:                         	0.222 seconds.
+Reads Processed:        2500 	11.25k reads/sec
+Bases Processed:        249k 	1.12m bases/sec
+Spikein Sequence Removed:	0 reads (0.00%)	0 bases (0.00%)
+Executing jgi.BBDuk [maq=3.0,0, trimq=0.0, qtrim=r, ordered, overwrite=true, maxns=3, minlen=51, minlenfraction=0.33, k=31, hdist=1, pigz=t, unpigz=t, zl=6, cf=t, barcodefilter=f, ow=true, in1=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/tmp.78844a64/TEMP_SPIKEIN_59eaf509b9f29d0645fe86d03f2af_rqcfilter.output.fastq.gz, out1=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/tmp.78844a64/TEMP_FILTER1_59eaf509b9f29d0645fe86d03f2af_rqcfilter.output.fastq.gz, outm=filter/synth1.fq.gz, rqc=hashmap, outduk=filter/kmerStats1.txt, stats=filter/scaffoldStats1.txt, trimpolygleft=5, trimpolygright=5, loglog, loglogout, ref=/refdata/RQCFilterData/Illumina.artifacts.fa.gz,/refdata/RQCFilterData/nextera_LMP_linker.fa.gz,/refdata/RQCFilterData/phix174_ill.ref.fa.gz,/refdata/RQCFilterData/lambda.fa.gz,/refdata/RQCFilterData/pJET1.2.fa.gz]
+Version 38.44
+
+Set ORDERED to true
+0.013 seconds.
+Initial:
+Memory: max=45730m, total=45730m, free=41851m, used=3879m
+
+Added 13082448 kmers; time: 	1.283 seconds.
+Memory: max=45730m, total=45730m, free=41209m, used=4521m
+
+Input is being processed as paired
+Started output streams:	0.007 seconds.
+Processing time:   		0.157 seconds.
+
+Input:                  	2500 reads 		249910 bases.
+Contaminants:           	0 reads (0.00%) 	0 bases (0.00%)
+QTrimmed:               	0 reads (0.00%) 	0 bases (0.00%)
+Polymer-trimmed:        	12 reads (0.48%) 	64 bases (0.03%)
+Filtered by header:     	0 reads (0.00%) 	0 bases (0.00%)
+Low quality discards:   	0 reads (0.00%) 	0 bases (0.00%)
+Total Removed:          	0 reads (0.00%) 	64 bases (0.03%)
+Result:                 	2500 reads (100.00%) 	249846 bases (99.97%)
+Unique 31-mers:         	79424
+Unique 31-mers out:     	77117
+
+Time:                         	1.454 seconds.
+Reads Processed:        2500 	1.72k reads/sec
+Bases Processed:        249k 	0.17m bases/sec
+Synthetic Contam Sequence Removed:	0 reads (0.00%)	64 bases (0.03%)
+Executing jgi.BBDuk [ordered, overwrite=true, k=20, hdist=1, pigz=t, unpigz=t, zl=6, ow=true, in1=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/tmp.78844a64/TEMP_FILTER1_59eaf509b9f29d0645fe86d03f2af_rqcfilter.output.fastq.gz, out1=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/tmp.78844a64/TEMP_FILTER2_59eaf509b9f29d0645fe86d03f2af_rqcfilter.output.fastq.gz, outm=filter/synth2.fq.gz, outduk=filter/kmerStats2.txt, stats=filter/scaffoldStats2.txt, loglog, loglogout, ref=/refdata/RQCFilterData/short.fa.gz,/refdata/RQCFilterData/short.fa.gz]
+Version 38.44
+
+Set ORDERED to true
+0.012 seconds.
+Initial:
+Memory: max=45730m, total=45730m, free=40289m, used=5441m
+
+Added 986 kmers; time: 	0.011 seconds.
+Memory: max=45730m, total=45730m, free=39914m, used=5816m
+
+Input is being processed as paired
+Started output streams:	0.006 seconds.
+Processing time:   		0.080 seconds.
+
+Input:                  	2500 reads 		249846 bases.
+Contaminants:           	0 reads (0.00%) 	0 bases (0.00%)
+Total Removed:          	0 reads (0.00%) 	0 bases (0.00%)
+Result:                 	2500 reads (100.00%) 	249846 bases (100.00%)
+Unique 31-mers:         	80631
+Unique 31-mers out:     	75305
+
+Time:                         	0.107 seconds.
+Reads Processed:        2500 	23.45k reads/sec
+Bases Processed:        249k 	2.34m bases/sec
+Short Synthetic Contam Sequence Removed:	0 reads (0.00%)	0 bases (0.00%)
+Loading tax tree.
+5.350 seconds.
+Executing align2.BBMap [tipsearch=20, maxindel=80, minhits=2, bwr=0.18, bw=40, minratio=0.65, midpad=150, minscaf=50, quickmatch=t, rescuemismatches=15, rescuedist=800, maxsites=3, maxsites2=100, ordered, quickmatch, k=13, idtag=t, printunmappedcount, ow=true, qtrim=rl, trimq=10, untrim, path=/refdata/RQCFilterData/commonMicrobes/, pigz=t, unpigz=t, zl=6, minid=.95, idfilter=.95, maxindel=3, minhits=2, bw=12, bwr=0.16, maxsites2=10, build=1, tipsearch=0, in1=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/tmp.78844a64/TEMP_FILTER2_59eaf509b9f29d0645fe86d03f2af_rqcfilter.output.fastq.gz, outu1=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/tmp.78844a64/TEMP_MICROBE_59eaf509b9f29d0645fe86d03f2af_rqcfilter.output.fastq.gz, outm=filter/microbes.fq.gz, scafstats=filter/commonMicrobes.txt]
+Version 38.44
+
+Set MINIMUM_ALIGNMENT_SCORE_RATIO to 0.650
+Set OUTPUT_ORDERED_READS to true
+Scaffold statistics will be written to filter/commonMicrobes.txt
+Retaining first best site only for ambiguous mappings.
+Set MINIMUM_ALIGNMENT_SCORE_RATIO to 0.908
+Set genome to 1
+
+Loaded Reference:	2.238 seconds.
+Loading index for chunk 1-1, build 1
+Generated Index:	2.288 seconds.
+Analyzed Index:   	4.830 seconds.
+Started output stream:	0.004 seconds.
+Started output stream:	0.003 seconds.
+Creating scaffold statistics table:   	0.001 seconds.
+Cleared Memory:    	5.942 seconds.
+Processing reads in paired-ended mode.
+Started read stream.
+Started 16 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	3
+Minimum Score Ratio:  	0.9081
+Mapping Mode:         	normal
+Reads Used:           	2500	(249838 bases)
+
+Mapping:          	0.885 seconds.
+Reads/sec:       	2825.32
+kBases/sec:      	282.35
+
+
+Pairing data:   	pct pairs	num pairs 	pct bases	   num bases
+
+mated pairs:     	  0.0000% 	        0 	  0.0000% 	           0
+bad pairs:       	  0.0000% 	        0 	  0.0000% 	           0
+insert size avg: 	     NaN
+unmapped:        	100.0000% 	     2500 	100.0032% 	      249846
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	  0.0000% 	        0 	  0.0000% 	           0
+unambiguous:     	  0.0000% 	        0 	  0.0000% 	           0
+ambiguous:       	  0.0000% 	        0 	  0.0000% 	           0
+low-Q discards:  	  0.0000% 	        0 	  0.0000% 	           0
+
+perfect best site:	  0.0000% 	        0 	  0.0000% 	           0
+semiperfect site:	  0.0000% 	        0 	  0.0000% 	           0
+rescued:         	  0.0000% 	        0
+
+Match Rate:      	      NA 	       NA 	     NaN% 	           0
+Error Rate:      	     NaN% 	        0 	     NaN% 	           0
+Sub Rate:        	     NaN% 	        0 	     NaN% 	           0
+Del Rate:        	     NaN% 	        0 	     NaN% 	           0
+Ins Rate:        	     NaN% 	        0 	     NaN% 	           0
+N Rate:          	     NaN% 	        0 	     NaN% 	           0
+
+
+Read 2 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	  0.0000% 	        0 	  0.0000% 	           0
+unambiguous:     	  0.0000% 	        0 	  0.0000% 	           0
+ambiguous:       	  0.0000% 	        0 	  0.0000% 	           0
+low-Q discards:  	  0.0000% 	        0 	  0.0000% 	           0
+
+perfect best site:	  0.0000% 	        0 	  0.0000% 	           0
+semiperfect site:	  0.0000% 	        0 	  0.0000% 	           0
+rescued:         	  0.0000% 	        0
+
+Match Rate:      	      NA 	       NA 	     NaN% 	           0
+Error Rate:      	     NaN% 	        0 	     NaN% 	           0
+Sub Rate:        	     NaN% 	        0 	     NaN% 	           0
+Del Rate:        	     NaN% 	        0 	     NaN% 	           0
+Ins Rate:        	     NaN% 	        0 	     NaN% 	           0
+N Rate:          	     NaN% 	        0 	     NaN% 	           0
+
+Total time:     	16.277 seconds.
+Microbial Sequence Removed:	0 reads (0.00%)	0 bases (0.00%)
+Executing align2.BBSplitter [ordered=false, k=14, idtag=t, usemodulo, printunmappedcount, ow=true, qtrim=rl, trimq=10, untrim, kfilter=25, maxsites=1, tipsearch=0, minratio=.9, maxindel=3, minhits=2, bw=12, bwr=0.16, fast=true, maxsites2=10, build=1, ef=0.03, outm=filter/human.fq.gz, path=/refdata/RQCFilterData/mousecatdoghuman/, refstats=filter/refStats.txt, pigz=t, unpigz=t, zl=9, forcereadonly, in1=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/tmp.78844a64/TEMP_MICROBE_59eaf509b9f29d0645fe86d03f2af_rqcfilter.output.fastq.gz, outu1=filter/../rqcfilter.output.fastq.gz]
+
+Merged reference file /refdata/RQCFilterData/mousecatdoghuman/ref/genome/1/merged_ref_1682110183708951285.fa.gz already exists; skipping merge.
+Ref merge time:     	0.024 seconds.
+Executing align2.BBMap [tipsearch=20, maxindel=80, minhits=2, bwr=0.18, bw=40, minratio=0.65, midpad=150, minscaf=50, quickmatch=t, rescuemismatches=15, rescuedist=800, maxsites=3, maxsites2=100, ordered=false, k=14, idtag=t, usemodulo, printunmappedcount, ow=true, qtrim=rl, trimq=10, untrim, kfilter=25, maxsites=1, tipsearch=0, minratio=.9, maxindel=3, minhits=2, bw=12, bwr=0.16, maxsites2=10, build=1, outm=filter/human.fq.gz, refstats=filter/refStats.txt, pigz=t, unpigz=t, zl=9, forcereadonly, in1=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/tmp.78844a64/TEMP_MICROBE_59eaf509b9f29d0645fe86d03f2af_rqcfilter.output.fastq.gz, outu1=filter/../rqcfilter.output.fastq.gz, ref=/refdata/RQCFilterData/mousecatdoghuman/ref/genome/1/merged_ref_1682110183708951285.fa.gz]
+Version 38.44
+
+Set MINIMUM_ALIGNMENT_SCORE_RATIO to 0.650
+Set OUTPUT_ORDERED_READS to false
+Set MINIMUM_ALIGNMENT_SCORE_RATIO to 0.900
+Reference set statistics will be written to filter/refStats.txt
+Retaining first best site only for ambiguous mappings.
+NOTE:	Ignoring reference file because it already appears to have been processed.
+NOTE:	If you wish to regenerate the index, please manually delete /refdata/RQCFilterData/mousecatdoghuman/ref/genome/1/summary.txt
+Set genome to 1
+
+Loaded Reference:	12.256 seconds.
+Loading index for chunk 1-23, build 1
+Generated Index:	16.754 seconds.
+Analyzed Index:   	22.160 seconds.
+Started output stream:	0.004 seconds.
+Started output stream:	0.002 seconds.
+Creating ref-set statistics table:    	0.000 seconds.
+Cleared Memory:    	7.215 seconds.
+Processing reads in paired-ended mode.
+Started read stream.
+Started 16 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	14
+Max Indel:             	3
+Minimum Score Ratio:  	0.9
+Mapping Mode:         	normal
+Reads Used:           	2500	(249838 bases)
+
+Mapping:          	0.785 seconds.
+Reads/sec:       	3183.77
+kBases/sec:      	318.17
+
+
+Pairing data:   	pct pairs	num pairs 	pct bases	   num bases
+
+mated pairs:     	  0.0000% 	        0 	  0.0000% 	           0
+bad pairs:       	  0.0000% 	        0 	  0.0000% 	           0
+insert size avg: 	     NaN
+unmapped:        	100.0000% 	     2500 	100.0032% 	      249846
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	  0.0000% 	        0 	  0.0000% 	           0
+unambiguous:     	  0.0000% 	        0 	  0.0000% 	           0
+ambiguous:       	  0.0000% 	        0 	  0.0000% 	           0
+low-Q discards:  	  0.0000% 	        0 	  0.0000% 	           0
+
+perfect best site:	  0.0000% 	        0 	  0.0000% 	           0
+semiperfect site:	  0.0000% 	        0 	  0.0000% 	           0
+rescued:         	  0.0000% 	        0
+
+Match Rate:      	      NA 	       NA 	     NaN% 	           0
+Error Rate:      	     NaN% 	        0 	     NaN% 	           0
+Sub Rate:        	     NaN% 	        0 	     NaN% 	           0
+Del Rate:        	     NaN% 	        0 	     NaN% 	           0
+Ins Rate:        	     NaN% 	        0 	     NaN% 	           0
+N Rate:          	     NaN% 	        0 	     NaN% 	           0
+
+
+Read 2 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	  0.0000% 	        0 	  0.0000% 	           0
+unambiguous:     	  0.0000% 	        0 	  0.0000% 	           0
+ambiguous:       	  0.0000% 	        0 	  0.0000% 	           0
+low-Q discards:  	  0.0000% 	        0 	  0.0000% 	           0
+
+perfect best site:	  0.0000% 	        0 	  0.0000% 	           0
+semiperfect site:	  0.0000% 	        0 	  0.0000% 	           0
+rescued:         	  0.0000% 	        0
+
+Match Rate:      	      NA 	       NA 	     NaN% 	           0
+Error Rate:      	     NaN% 	        0 	     NaN% 	           0
+Sub Rate:        	     NaN% 	        0 	     NaN% 	           0
+Del Rate:        	     NaN% 	        0 	     NaN% 	           0
+Ins Rate:        	     NaN% 	        0 	     NaN% 	           0
+N Rate:          	     NaN% 	        0 	     NaN% 	           0
+
+Total time:     	59.225 seconds.
+Human Sequence Removed:	0 reads (0.00%)	0 bases (0.00%)
+cardinality=75305, capacity=1599717275
+Executing jgi.BBMerge [loose, overwrite=true, in1=filter/../rqcfilter.output.fastq.gz, ihist=filter/ihist_merge.txt, outc=filter/cardinality.txt, pigz=t, unpigz=t, zl=9, adapters=/refdata/RQCFilterData/adapters2.fa.gz, mininsert=25, ecct, extend2=100, rem, k=62, prefilter, prealloc, loglog]
+Version 38.44
+
+Revised arguments: [minoverlap=8, minoverlap0=9, qualiters=4, mismatches=3, margin=2, ratiooffset=0.4, minsecondratio=0.08, maxratio=0.11, ratiomargin=4.7, ratiominoverlapreduction=2, pfilter=0.00002, efilter=8, minentropy=30, minapproxoverlap=30, overwrite=true, in1=filter/../rqcfilter.output.fastq.gz, ihist=filter/ihist_merge.txt, outc=filter/cardinality.txt, pigz=t, unpigz=t, zl=9, adapters=/refdata/RQCFilterData/adapters2.fa.gz, mininsert=25, ecct, extend2=100, rem, k=62, prefilter, prealloc, loglog]
+
+Executing assemble.Tadpole2 [in=filter/../rqcfilter.output.fastq.gz, branchlower=3, branchmult1=20.0, branchmult2=3.0, mincountseed=3, mincountextend=2, minprob=0.5, k=62, prealloc=true, prefilter=2, ecctail=false, eccpincer=false, eccreassemble=true]
+Version 38.44
+
+Using 16 threads.
+Executing ukmer.KmerTableSetU [in=filter/../rqcfilter.output.fastq.gz, branchlower=3, branchmult1=20.0, branchmult2=3.0, mincountseed=3, mincountextend=2, minprob=0.5, k=62, prealloc=true, prefilter=2, ecctail=false, eccpincer=false, eccreassemble=true]
+
+Initial size set to 27380697
+Initial:
+Ways=41, initialSize=27380697, prefilter=t, prealloc=1.0
+Memory: max=45730m, total=45730m, free=43981m, used=1749m
+
+Made prefilter:   	hashes = 2   	 mem = 6.97 GB   	cells = 29.92B   	used = 0.000%
+Estimated valid kmers: 		2530
+Prefilter time:	0.993 seconds.
+After prefilter:
+Memory: max=45730m, total=45730m, free=34882m, used=10848m
+
+Estimated kmer capacity: 	1034483825
+After table allocation:
+Memory: max=45730m, total=45730m, free=14781m, used=30949m
+
+After loading:
+Memory: max=45730m, total=45730m, free=13878m, used=31852m
+
+Input:                      	2500 reads 		249846 bases.
+Unique Kmers:               	2548
+Load Time:                  	8.648 seconds.
+
+Total time: 8.841 seconds.
+
+Pairs:               	1250
+Joined:              	0       	0.000%
+Ambiguous:           	1250       	100.000%
+No Solution:         	0       	0.000%
+Too Short:           	0       	0.000%
+Fully Extended:      	0       	0.000%
+Partly Extended:     	52       	2.080%
+Not Extended:        	2448       	97.920%
+Adapters Expected:   	0       	0.000%
+Adapters Found:      	0       	0.000%
+Unique 31-mers:         	76124
+
+Avg Insert:          	NaN
+Standard Deviation:  	0.0
+Mode:                	0
+
+Insert range:        	999999999 - 0
+90th percentile:     	0
+75th percentile:     	0
+50th percentile:     	0
+25th percentile:     	0
+10th percentile:     	0
+cardinality=76124, capacity=2666195458
+Executing jgi.KmerCountExact [overwrite=true, in1=filter/../rqcfilter.output.fastq.gz, khist=filter/khist.txt, peaks=filter/peaks.txt, unpigz=t, gchist]
+
+Initial:
+Memory: max=45730m, total=45730m, free=44128m, used=1602m
+
+Executing kmer.KmerTableSet [overwrite=true, in1=filter/../rqcfilter.output.fastq.gz, khist=filter/khist.txt, peaks=filter/peaks.txt, unpigz=t, gchist]
+
+Initial:
+Ways=41, initialSize=128000, prefilter=f, prealloc=f
+Memory: max=45730m, total=45730m, free=44128m, used=1602m
+
+0.011 seconds.
+After table allocation:
+Memory: max=45730m, total=45730m, free=44032m, used=1698m
+
+After loading:
+Memory: max=45730m, total=45730m, free=43166m, used=2564m
+
+Input:                      	2500 reads 		249846 bases.
+
+For K=31
+Unique Kmers:               	94862
+Average Kmer Count:         	1.812
+Estimated Kmer Depth:       	1.325
+Estimated Read Depth:       	1.926
+
+Load Time:                  	0.140 seconds.
+Histogram Write Time:       	1.044 seconds.
+
+Overall Time: 	105.309 seconds.

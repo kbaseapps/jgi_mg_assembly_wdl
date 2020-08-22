@@ -1,0 +1,7 @@
+java -ea -Xmx105g -Xms105g -cp /bbmap/current/ jgi.FungalRelease -Xmx105g in=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-assy/metagenome_assy.metagenome_assy/cf48e1e0-ac76-4737-8246-1d8b627419ef/call-create_agp/inputs/1200777607/scaffolds.fasta out=assembly.scaffolds.fasta outc=assembly.contigs.fasta agp=assembly.agp legend=assembly.scaffolds.legend mincontig=200 minscaf=200 sortscaffolds=t sortcontigs=t overwrite=t
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-assy/metagenome_assy.metagenome_assy/cf48e1e0-ac76-4737-8246-1d8b627419ef/call-create_agp/tmp.5342e05c
+Executing jgi.FungalRelease [-Xmx105g, in=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-assy/metagenome_assy.metagenome_assy/cf48e1e0-ac76-4737-8246-1d8b627419ef/call-create_agp/inputs/1200777607/scaffolds.fasta, out=assembly.scaffolds.fasta, outc=assembly.contigs.fasta, agp=assembly.agp, legend=assembly.scaffolds.legend, mincontig=200, minscaf=200, sortscaffolds=t, sortcontigs=t, overwrite=t]
+
+Time:                         	0.266 seconds.
+Reads Processed:          23 	0.09k reads/sec
+Bases Processed:        7722 	0.03m bases/sec

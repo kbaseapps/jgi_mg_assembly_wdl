@@ -1,0 +1,13 @@
+#Reads:	2500
+#Bases:	249846
+#Max:	100
+#Min:	88
+#Avg:	99.9
+#Median:	100
+#Mode:	100
+#Std_Dev:	1.3
+#Read Length Histogram:
+#Length	reads	pct_reads	cum_reads	cum_pct_reads	bases	pct_bases	cum_bases	cum_pct_bases
+80	8	0.320%	2500	100.000%	710	0.284%	249846	100.000%
+90	12	0.480%	2492	99.680%	1136	0.455%	249136	99.716%
+100	2480	99.200%	2480	99.200%	248000	99.261%	248000	99.261%

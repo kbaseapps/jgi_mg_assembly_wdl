@@ -1,0 +1,3 @@
+#!/bin/bash
+'/bin/bash' '/mnt/nfs3/data1/homes/canon/dev/jgi_meta_wdl/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/execution/script.submit' < /dev/null || { rc=$?; if [ "$rc" -gt "128" ]; then echo $rc; else echo -1; fi } > /mnt/nfs3/data1/homes/canon/dev/jgi_meta_wdl/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/execution/rc &
+echo $!

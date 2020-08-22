@@ -1,0 +1,42 @@
+java -ea -Xmx50g -cp /bbmap/current/ jgi.ReformatReads threads=16 -Xmx50g in=pairedMapped_sorted.bam out=pairedMapped.sam.gz overwrite=true
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-mapping/mapping.mapping/898b4836-9021-49ca-acb2-f615ab4b0daa/call-finalize_bams/tmp.67728bab
+Executing jgi.ReformatReads [threads=16, -Xmx50g, in=pairedMapped_sorted.bam, out=pairedMapped.sam.gz, overwrite=true]
+
+Set threads to 16
+Found sambamba.
+
+sambamba 0.6.8 by Artem Tarasov and Pjotr Prins (C) 2012-2018
+    LDC 1.10.0 / DMD v2.080.1 / LLVM6.0.1 / bootstrap LDC - the LLVM D compiler (0.17.4)
+
+Input is being processed as unpaired
+Waiting on header to be read from a sam file.
+Input:                  	2500 reads          	249846 bases
+Output:                 	2500 reads (100.00%) 	249846 bases (100.00%)
+
+Time:                         	0.875 seconds.
+Reads Processed:        2500 	2.86k reads/sec
+Bases Processed:        249k 	0.29m bases/sec
+java -ea -Xmx45164m -cp /bbmap/current/ jgi.CoveragePileup in=pairedMapped_sorted.bam out=pairedMapped_sorted.bam.cov
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-mapping/mapping.mapping/898b4836-9021-49ca-acb2-f615ab4b0daa/call-finalize_bams/tmp.67728bab
+Executing jgi.CoveragePileup [in=pairedMapped_sorted.bam, out=pairedMapped_sorted.bam.cov]
+
+Found samtools 1.6
+Found sambamba.
+
+sambamba 0.6.8 by Artem Tarasov and Pjotr Prins (C) 2012-2018
+    LDC 1.10.0 / DMD v2.080.1 / LLVM6.0.1 / bootstrap LDC - the LLVM D compiler (0.17.4)
+
+Reads:                               	405
+Mapped reads:                        	405
+Mapped bases:                        	39281
+Ref scaffolds:                       	23
+Ref bases:                           	7722
+
+Percent mapped:                      	100.000
+Percent proper pairs:                	32.099
+Average coverage:                    	5.087
+Standard deviation:                    	2.203
+Percent scaffolds with any coverage: 	100.00
+Percent of reference bases covered:  	100.00
+
+Time: 	0.327 seconds.

@@ -1,0 +1,7 @@
+#File	/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/tmp.78844a64/TEMP_CLUMP_59eaf509b9f29d0645fe86d03f2af_rqcfilter.output.fastq.gz
+#Total	2500
+#Matched	4	0.16000%
+#Name	Reads	ReadsPct
+RCOMP_I5_Nextera_Transposase_2	2	0.08000%
+I7_Primer_Nextera_XT_and_Nextera_Enrichment_N701	1	0.04000%
+RNA_Adapter_(RA5)_part_#_15013205	1	0.04000%

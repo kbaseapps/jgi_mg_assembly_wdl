@@ -1,0 +1,12 @@
+{
+   "Time": "Fri Aug 21 21:48:15 GMT 2020",
+   "Host": "3f92fbad5285",
+   "BBToolsVersion": "38.86",
+   "JavaVersion": 13.0,
+   "Command": "java -ea -Xmx20g -Xms20g -Djava.io.tmpdir=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-assy/metagenome_assy.metagenome_assy/cf48e1e0-ac76-4737-8246-1d8b627419ef/call-bbcms/tmp.159ce014 -cp /bbmap/current/ bloom.BloomFilterCorrectorWrapper -Xmx20g metadatafile=counts.metadata.json mincount=2 highcountfraction=0.6 in=bbcms.input.fastq.gz out1=input.corr.left.fastq.gz out2=input.corr.right.fastq.gz",
+   "Script": "bbcms.sh -Xmx20g metadatafile=counts.metadata.json mincount=2 highcountfraction=0.6 in=bbcms.input.fastq.gz out1=input.corr.left.fastq.gz out2=input.corr.right.fastq.gz",
+   "ReadsIn": 2500,
+   "BasesIn": 249846,
+   "ReadsOut": 970,
+   "BasesOut": 96872
+}

@@ -1,0 +1,33 @@
+
+Query: rqcfilter.input.fastq.gz	DB: nt	SketchLen: 997	Seqs: 2500 	Bases: 250000	gSize: 85326	Quality: 0.7912	AvgCount: 1.816	Depth: 1.331	File: rqcfilter.input.fastq.gz
+No hits.
+
+
+Query: rqcfilter.input.fastq.gz	DB: RefSeq	SketchLen: 2075	Seqs: 2500 	Bases: 250000	gSize: 85679	Quality: 0.7912	AvgCount: 1.810	Depth: 1.322	File: rqcfilter.input.fastq.gz
+No hits.
+
+Error.
+
+Query: rqcfilter.input.fastq.gz	DB: ProkProt	SketchLen: 510	Seqs: 2093 	SeqLen: 63693	gSize: 23737	AvgCount: 1.759	Depth: 1.248	File: rqcfilter.input.fastq.gz
+WKID	KID	AAI	SSU	Complt	Contam	Contam2	Depth	Depth2	Volume	RefHits	Matches	Unique	Unique2	Unique3	TaxID	gSize	gSeqs	taxName	file
+3.73%	0.09%	72.70%	.	1.98%	18.63%	17.25%	1.799	1.799	0.041	115.3	19	3	3	3	2169400	1150103	4079	Gemmobacter sp. HYN0069	.
+2.75%	0.07%	69.75%	.	2.02%	21.37%	19.02%	1.965	1.965	0.032	238.9	14	0	0	4	2528036	967060	3425	Rhodobacter sp. YIM 73028	.
+2.75%	0.07%	69.74%	.	1.99%	21.18%	17.65%	1.965	1.965	0.032	238.9	14	0	0	4	2529861	1028450	3642	Tabrizicola sp. YIM 78059	.
+2.55%	0.06%	69.82%	.	1.99%	21.37%	18.82%	1.894	1.894	0.029	294.3	13	0	1	4	1188250	1001423	3534	Rhodobacter blasticus DSM 2131	.
+2.55%	0.06%	69.85%	.	1.90%	18.24%	15.10%	1.150	1.150	0.022	56.62	13	3	3	4	2067452	1304823	4510	Tabrizicola sp. TH137	.
+2.35%	0.06%	68.95%	.	1.95%	20.78%	16.86%	1.587	1.587	0.024	177.3	12	1	1	4	909926	1092217	3819	Tabrizicola aquatica	.
+2.35%	0.06%	68.19%	.	1.96%	20.78%	18.82%	1.472	1.472	0.023	234.1	12	0	0	1	2052957	1089429	3637	Pseudorhodobacter sp. MZDSW-24AT	.
+1.96%	0.05%	68.03%	.	1.99%	21.96%	21.57%	1.984	1.984	0.023	322.2	10	0	0	0	245187	998467	3463	Loktanella fryxellensis	.
+1.96%	0.05%	68.30%	.	1.98%	21.96%	18.82%	1.307	1.307	0.018	260.9	10	0	3	4	2593019	1006976	3491	Rhodobacter sp. SYSU G02092	.
+1.96%	0.05%	68.30%	.	1.98%	21.96%	18.82%	1.307	1.307	0.018	260.9	10	0	3	4	2593020	1006953	3493	Rhodobacter sp. SYSU G02094	.
+1.96%	0.05%	68.30%	.	1.97%	21.76%	18.63%	1.307	1.307	0.018	260.9	10	0	3	4	2593022	1028290	3645	Rhodobacter sp. SYSU G02214	.
+1.76%	0.04%	66.88%	.	1.89%	19.02%	15.10%	2.026	2.026	0.021	291.2	9	0	0	4	2305252	1286269	4414	Tabrizicola sp. DJC	.
+1.76%	0.04%	65.45%	.	1.91%	20.00%	20.00%	1.883	0.942	0.020	295.6	9	0	0	0	1826607	1215602	8715	Silicimonas algicola	.
+1.57%	0.04%	66.96%	.	1.86%	18.63%	16.47%	2.079	2.079	0.019	291.6	8	1	1	1	1678131	1377081	5032	Pseudorhodobacter psychrotolerans	.
+1.57%	0.04%	66.30%	.	1.96%	22.16%	18.63%	1.587	1.587	0.016	325.3	8	0	1	4	2670345	1030296	3625	Rhodobacter thermarum	.
+1.37%	0.03%	65.66%	.	1.89%	20.39%	16.08%	2.323	2.323	0.018	367.1	7	0	0	4	2494374	1224346	4236	Tabrizicola piscis	.
+1.57%	0.04%	66.86%	.	1.94%	21.96%	18.63%	1.050	1.050	0.013	268.9	8	0	1	4	446682	1064600	3687	Rhodobacter maris	.
+1.57%	0.04%	66.80%	.	1.95%	21.18%	18.04%	1.050	1.050	0.013	273.0	8	0	0	4	570013	1095748	3651	Rhodobacter sp. JA431	.
+1.57%	0.04%	66.80%	.	1.94%	21.57%	18.43%	1.050	0.525	0.013	273.0	8	0	0	4	453582	1091585	7171	Rhodobacter aestuarii	.
+1.37%	0.03%	64.40%	.	1.89%	20.00%	19.41%	1.587	1.587	0.014	361.9	7	1	1	1	2585369	1251754	4396	Rubellimicrobium rubrum	.
+

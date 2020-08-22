@@ -1,0 +1,87 @@
+java -ea -Xmx42790m -cp /bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 threads=16 nodisk=true interleaved=true ambiguous=random rgid=filename in=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-mapping/mapping.mapping/898b4836-9021-49ca-acb2-f615ab4b0daa/call-single_run/inputs/-1885903553/rqcfilter.output.fastq.gz ref=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-mapping/mapping.mapping/898b4836-9021-49ca-acb2-f615ab4b0daa/call-single_run/inputs/1239197184/assembly.contigs.fasta out=pairedMapped.bam
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-mapping/mapping.mapping/898b4836-9021-49ca-acb2-f615ab4b0daa/call-single_run/tmp.e0bc88e9
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, threads=16, nodisk=true, interleaved=true, ambiguous=random, rgid=filename, in=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-mapping/mapping.mapping/898b4836-9021-49ca-acb2-f615ab4b0daa/call-single_run/inputs/-1885903553/rqcfilter.output.fastq.gz, ref=/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-mapping/mapping.mapping/898b4836-9021-49ca-acb2-f615ab4b0daa/call-single_run/inputs/1239197184/assembly.contigs.fasta, out=pairedMapped.bam]
+Version 38.44
+
+Set threads to 16
+Set INTERLEAVED to true
+Choosing a site randomly for ambiguous mappings.
+Executing dna.FastaToChromArrays2 [/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-mapping/mapping.mapping/898b4836-9021-49ca-acb2-f615ab4b0daa/call-single_run/inputs/1239197184/assembly.contigs.fasta, 1, writeinthread=false, genscaffoldinfo=true, retain, waitforwriting=false, gz=true, maxlen=536670912, writechroms=false, minscaf=1, midpad=300, startpad=8000, stoppad=8000, nodisk=true]
+
+Set genScaffoldInfo=true
+Set genome to 1
+
+Loaded Reference:	0.006 seconds.
+Loading index for chunk 1-1, build 1
+Indexing threads started for block 0-1
+Indexing threads finished for block 0-1
+Generated Index:	0.457 seconds.
+Analyzed Index:   	2.816 seconds.
+Found samtools 1.6
+Started output stream:	1.266 seconds.
+Cleared Memory:    	0.458 seconds.
+Processing reads in paired-ended mode.
+Started read stream.
+Started 16 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	2500	(249846 bases)
+
+Mapping:          	0.575 seconds.
+Reads/sec:       	4344.53
+kBases/sec:      	434.19
+
+
+Pairing data:   	pct pairs	num pairs 	pct bases	   num bases
+
+mated pairs:     	  5.2000% 	       65 	  5.1848% 	       12954
+bad pairs:       	  1.3600% 	       17 	  1.3608% 	        3400
+insert size avg: 	  328.92
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 15.7600% 	      197 	 15.7519% 	       19677
+unambiguous:     	 15.7600% 	      197 	 15.7519% 	       19677
+ambiguous:       	  0.0000% 	        0 	  0.0000% 	           0
+low-Q discards:  	  0.0000% 	        0 	  0.0000% 	           0
+
+perfect best site:	  8.0000% 	      100 	  7.9908% 	        9982
+semiperfect site:	  8.5600% 	      107 	  8.5512% 	       10682
+rescued:         	  0.0000% 	        0
+
+Match Rate:      	      NA 	       NA 	 97.1083% 	       19108
+Error Rate:      	 45.6853% 	       90 	  0.5946% 	         117
+Sub Rate:        	 45.6853% 	       90 	  0.5946% 	         117
+Del Rate:        	  0.0000% 	        0 	  0.0000% 	           0
+Ins Rate:        	  0.0000% 	        0 	  0.0000% 	           0
+N Rate:          	 11.6751% 	       23 	  2.2971% 	         452
+
+
+Read 2 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 16.6400% 	      208 	 16.6400% 	       20788
+unambiguous:     	 16.6400% 	      208 	 16.6400% 	       20788
+ambiguous:       	  0.0000% 	        0 	  0.0000% 	           0
+low-Q discards:  	  0.0000% 	        0 	  0.0000% 	           0
+
+perfect best site:	  6.9600% 	       87 	  6.9640% 	        8700
+semiperfect site:	  8.0000% 	      100 	  8.0046% 	       10000
+rescued:         	  0.0000% 	        0
+
+Match Rate:      	      NA 	       NA 	 95.6321% 	       19880
+Error Rate:      	 51.9231% 	      108 	  0.8466% 	         176
+Sub Rate:        	 51.9231% 	      108 	  0.8466% 	         176
+Del Rate:        	  0.0000% 	        0 	  0.0000% 	           0
+Ins Rate:        	  0.0000% 	        0 	  0.0000% 	           0
+N Rate:          	 15.8654% 	       33 	  3.5213% 	         732
+
+Total time:     	5.891 seconds.
+[bam_sort_core] merging from 0 files and 16 in-memory blocks...

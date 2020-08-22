@@ -1,0 +1,33 @@
+##INPUT PARAMETERS##
+#Reference file:	/refdata/RQCFilterData/adapters2.fa.gz
+#Query file:	/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/tmp.78844a64/TEMP_CLUMP_59eaf509b9f29d0645fe86d03f2af_rqcfilter.output.fastq.gz
+#Not matched reads file:	/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/tmp.78844a64/TEMP_TRIM_59eaf509b9f29d0645fe86d03f2af_rqcfilter.output.fastq.gz
+#Matched reads file:	null
+#Output file (duk):	filter/ktrim_kmerStats1.txt
+#Output file (stats):	filter/ktrim_scaffoldStats1.txt
+#Mer size:	23
+#Avg step size:	0.0
+#Cut off:	0
+#Mask middle:	false
+#Quality trim:	false
+
+##REFERENCE STAT##
+#Total Reads:	308
+#Total Bases:	16959
+#Total kmers:	10185
+#Total stored kmers:	431294
+
+## ELAPSED TIME##
+# Time:	0.35 seconds
+
+##QUERY FILE STAT##
+# Total number of reads:	2500
+# Total number of matched reads:	0
+# Match ratio:	0.000000
+
+##P-VALUE##
+#Avg number of Kmer for each read:	77
+
+## Histogram of kmer occurance for reads with at least one occurance ##
+#NumOcc	NumReads	Percentage
+

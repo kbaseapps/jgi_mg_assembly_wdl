@@ -1,0 +1,34 @@
+##INPUT PARAMETERS##
+#Reference file:	[/refdata/RQCFilterData/Illumina.artifacts.fa.gz, /refdata/RQCFilterData/nextera_LMP_linker.fa.gz, /refdata/RQCFilterData/phix174_ill.ref.fa.gz, /refdata/RQCFilterData/lambda.fa.gz, /refdata/RQCFilterData/pJET1.2.fa.gz]
+#Query file:	/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/tmp.78844a64/TEMP_SPIKEIN_59eaf509b9f29d0645fe86d03f2af_rqcfilter.output.fastq.gz
+#Not matched reads file:	/cromwell-executions/metagenome_filtering_assembly_and_alignment/9617fcc1-b903-449c-9245-c0438074d3ea/call-filter/rqcfilter2.rqcfilter2/b6a3d4bd-ce8a-492b-9b45-7c984a7fbc60/call-rqcfilter/tmp.78844a64/TEMP_FILTER1_59eaf509b9f29d0645fe86d03f2af_rqcfilter.output.fastq.gz
+#Matched reads file:	filter/synth1.fq.gz
+#Output file (duk):	filter/kmerStats1.txt
+#Output file (stats):	filter/scaffoldStats1.txt
+#Mer size:	31
+#Avg step size:	0.0
+#Cut off:	0
+#Mask middle:	true
+#Quality trim:	0.0
+
+##REFERENCE STAT##
+#Total Reads:	169
+#Total Bases:	159875
+#Total kmers:	154850
+#Total stored kmers:	13035094
+
+## ELAPSED TIME##
+# Time:	1.45 seconds
+
+##QUERY FILE STAT##
+# Total number of reads:	2500
+# Total number of matched reads:	0
+# Match ratio:	0.000000
+
+##P-VALUE##
+#Avg number of Kmer for each read:	68
+
+## Histogram of kmer occurance for reads with at least one occurance ##
+#NumOcc	NumReads	Percentage
+0	2500	100.0000
+

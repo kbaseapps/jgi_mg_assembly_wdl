@@ -1,0 +1,36 @@
+10710	species	Escherichia virus Lambda
+305	species	Ralstonia solanacearum
+1280	species	Staphylococcus aureus
+511145	substrain	Escherichia coli str. K-12 substr. MG1655
+190485	substrain	Xanthomonas campestris pv. campestris str. ATCC 33913
+267608	strain	Ralstonia solanacearum GMI1000
+216595	strain	Pseudomonas fluorescens SBW25
+272558	strain	Bacillus halodurans C-125
+176279	strain	Staphylococcus epidermidis RP62A
+205922	strain	Pseudomonas fluorescens Pf0-1
+232721	species	Acidovorax sp. JS42
+398578	strain	Delftia acidovorans SPH-1
+391008	strain	Stenotrophomonas maltophilia R551-3
+62928	species	Azoarcus sp. BH72
+522373	strain	Stenotrophomonas maltophilia K279a
+688245	substrain	Comamonas testosteroni CNB-2
+757424	strain	Herbaspirillum seropedicae SmR1
+742013	species	Delftia sp. Cs1-4
+1114970	strain	Pseudomonas fluorescens F113
+1144306	species	Rhizobium sp. AP16
+358220	species	Acidovorax sp. KKS102
+745310	species	Sphingomonas sp. MM-1
+1265504	strain	Curvibacter lanceolatus ATCC 14669
+1217690	strain	Acinetobacter calcoaceticus ANC 3811
+983594	strain	Burkholderia cepacia ATCC 25416
+348824	species	Rhizobium favelukesii
+1495331	species	Pseudomonas sp. WCS374
+1333852	strain	Klebsiella oxytoca KONIH1
+68895	species	Cupriavidus basilensis
+80878	species	Acidovorax temperans
+1267562	strain	Cupriavidus gilardii CR3
+1242245	strain	Acinetobacter johnsonii XBB1
+470	species	Acinetobacter baumannii
+1125630	strain	Klebsiella pneumoniae subsp. pneumoniae HS11286
+300267	strain	Shigella dysenteriae Sd197
+198214	substrain	Shigella flexneri 2a str. 301

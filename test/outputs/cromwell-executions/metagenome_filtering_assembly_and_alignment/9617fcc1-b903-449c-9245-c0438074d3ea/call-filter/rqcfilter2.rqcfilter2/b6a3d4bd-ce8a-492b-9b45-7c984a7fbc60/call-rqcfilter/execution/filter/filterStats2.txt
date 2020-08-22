@@ -1,0 +1,21 @@
+#Class	Reads	Bases	ReadPct	BasePct	Notes
+Input	2500	250000	100.000	100.000
+Output	2500	249846	100.000	99.938
+Duplicate	0	0	0.000	0.000
+LowQuality	0	64	0.000	0.026
+PolyG	12	64	0.480	0.026	SubsetOfLowQuality
+N	0	0	0.000	0.000	SubsetOfLowQuality
+Artifact	0	0	0.000	0.000
+Spike-in	0	0	0.000	0.000
+ForceTrim	0	0	0.000	0.000
+Adapter	0	90	0.000	0.036
+ChloroMap	0	0	0.000	0.000
+MitoMap	0	0	0.000	0.000
+RiboMap	0	0	0.000	0.000
+RiboKmer	0	0	0.000	0.000
+Human	0	0	0.000	0.000
+Mouse	0	0	0.000	0.000
+Cat	0	0	0.000	0.000
+Dog	0	0	0.000	0.000
+Microbe	0	0	0.000	0.000
+Other	0	0	0.000	0.000

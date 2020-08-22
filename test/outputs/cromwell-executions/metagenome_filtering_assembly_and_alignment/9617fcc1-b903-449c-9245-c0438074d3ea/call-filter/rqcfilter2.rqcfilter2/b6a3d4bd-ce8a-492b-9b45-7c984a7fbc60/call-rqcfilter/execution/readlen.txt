@@ -1,0 +1,11 @@
+#Reads:	2500
+#Bases:	250000
+#Max:	100
+#Min:	100
+#Avg:	100.0
+#Median:	100
+#Mode:	100
+#Std_Dev:	0.0
+#Read Length Histogram:
+#Length	reads	pct_reads	cum_reads	cum_pct_reads	bases	pct_bases	cum_bases	cum_pct_bases
+100	2500	100.000%	2500	100.000%	250000	100.000%	250000	100.000%
