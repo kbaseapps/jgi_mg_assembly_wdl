@@ -114,7 +114,7 @@ class ReportUtil(object):
             saved_objects = list()
 
         # pipeline_output["report_graphics"] = generate_graphics(pipeline_output["bbmap"]["coverage_file"], self.output_dir)
-        covfile = self._fix_path(outputs["jgi_meta_assem_wf.bbmap.covstats"])
+        covfile = self._fix_path(outputs["metagenome_filtering_assembly_and_alignment.mapping.final_outcov"])
         pipeline_output["report_graphics"] = generate_graphics(covfile, self.output_dir)
 
         # Make the html report
@@ -197,15 +197,16 @@ class ReportUtil(object):
                  counts["reads_info_corrected"],
                  counts["corrected_percent"])
 
-        sfile = self._fix_path(outputs['jgi_meta_assem_wf.stats.statstxt'])
+        # sfile = self._fix_path(outputs['jgi_meta_assem_wf.stats.statstxt'])
         # with open(pipeline_output["stats"]["stats_txt"], "r") as stats:
-        with open(sfile, "r") as stats:
-            assembly_stats_file = "".join(stats.readlines())
-        assembly_stats = "Assembly stats:\n{}".format(assembly_stats_file)
+        # with open(sfile, "r") as stats:
+        #     assembly_stats_file = "".join(stats.readlines())
+        # assembly_stats = "Assembly stats:\n{}".format(assembly_stats_file)
+        assembly_stats = ''
 
         # TODO
         # counts = self._calc_alignment_counts(pipeline_output["bbmap"]["stats_file"])
-        covfile = self._fix_path(outputs['jgi_meta_assem_wf.bbmap.covstats'])
+        covfile = self._fix_path(outputs['metagenome_filtering_assembly_and_alignment.mapping.final_outcov'])
         # m50, m90 = self._calc_m50_m90(covfile, counts["input_reads"])
         alignment_stats = "Alignment of reads to final assembly:\n"
         # if "error" in counts:

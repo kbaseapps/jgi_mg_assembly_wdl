@@ -43,8 +43,7 @@ task rqcfilt {
     command {
         rqcfilter.sh -Xmx50G threads=${threads} in=${infile} \
            out=filtered.fastq.gz \
-           rqcfilterdata=/refdata/RQCFilterData \
-           path=. trimfragadapter=t qtrim=r trimq=10 maxns=0 maq=12 minlen=51 mlf=0.33 \
+           path=. rqcfilterdata=/refdata/RQCFilterData trimfragadapter=t qtrim=r trimq=10 maxns=0 maq=12 minlen=51 mlf=0.33 \
            phix=t removehuman=t removedog=t removecat=t removemouse=t khist=t removemicrobes=f sketch=f kapa=t clumpify=t
     }
 

@@ -16,20 +16,26 @@ class jgi_mg_assembly:
         self.file_util = FU(callbaack_url)
         self.special = special(self.callback_url)
         self.report = report(self.callback_url, scratch)
-        self.wdl_file = '/kb/module/jgi_meta_spades.wdl'
 
     def validate_params(self, params):
         pass
 
     def run_wdl(self, rf):
-        wdl_file = 'jgi_meta_spades.wdl'
-        dst = os.path.join(self.scratch, wdl_file)
-        shutil.copy(self.wdl_file, dst)
+        wdl_files = [
+                'metagenome_filtering_assembly_and_alignment.wdl',
+                'rqcfilter2.wdl',
+                'metagenome_assy.wdl',
+                'mapping.wdl'
+                ]
+
+        for f in wdl_files:
+            src = os.path.join('../', f)
+            dst = os.path.join(self.scratch, f)
+            shutil.copy(src, dst)
         # Make the input file relative
         in_file = rf.replace(self.scratch, './')
         ins = {
-            "jgi_meta_assem_wf.input_file": in_file,
-            "jgi_meta_assem_wf.threads": "4"
+            "metagenome_filtering_assembly_and_alignment.input_files": [in_file]
         }
         ifile = 'input.json'
         input_file = os.path.join(self.scratch, ifile)
@@ -37,7 +43,7 @@ class jgi_mg_assembly:
             f.write(json.dumps(ins))
 
         p = {
-            'workflow': wdl_file,
+            'workflow': wdl_files[0],
             'inputs': ifile
         }
 
@@ -71,7 +77,7 @@ class jgi_mg_assembly:
 
         # upload the assembly
         uploaded_assy_upa = self.file_util.upload_assembly(
-            self._fix_path(pipeline_result["jgi_meta_assem_wf.fungalrelease.assy"]), 
+            self._fix_path(pipeline_result["metagenome_filtering_assembly_and_alignment.assy.final_contigs"]), 
             workspace_name, assembly_name
         )
         upload_result = {
@@ -81,7 +87,7 @@ class jgi_mg_assembly:
         if filtered_reads_name and not skip_rqcfilter:
             # unzip the cleaned reads because ReadsUtils won't do it for us.
             decompressed_reads = os.path.join(self.scratch, "filtered_reads.fastq")
-            inf = self._fix_path(pipeline_result["jgi_meta_assem_wf.rqcfilt.filtered"])
+            inf = self._fix_path(pipeline_result["metagenome_filtering_assembly_and_alignment.filter.final_filtered"][0])
             pigz_command = "{} -d -c {} > {}".format(PIGZ, inf, decompressed_reads)
             p = subprocess.Popen(pigz_command, cwd=self.scratch, shell=True)
             exit_code = p.wait()
